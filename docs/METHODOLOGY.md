@@ -37,7 +37,7 @@ If you disagree with any of these choices, open an issue. They have been argued 
 **Why not bulk AAO ingestion or runtime keyword search.** Three reasons.
 
 1. **Selection bias.** The AAO corpus on uscis.gov consists almost entirely of cases that were dismissed at the service-center level *and* appealed. Most NIW petitions are approved at first instance and never appear in this corpus. Training or grounding a model on bulk AAO data teaches it a wildly skewed prior — "most NIW cases get dismissed" — which is empirically false of NIW filings overall.
-2. **Procedural-vs-substantive noise.** A large fraction of AAO dismissals never reach all three prongs. The data-science decision the maintainers studied closely ([In Re: 37289559, Mar. 7, 2025](https://www.uscis.gov/sites/default/files/err/B7%20-%20Members%20of%20the%20Professions%20holding%20Advanced%20Degrees%20or%20Aliens%20of%20Exceptional%20Ability/Decisions_Issued_in_2025/MAR072025_01B7203.pdf)) reserved Prongs 2 and 3 under *INS v. Bagamasbad*, 429 U.S. 24, 25 (1976) and never reached merits on them. Including such cases in a bulk corpus teaches the model to mimic procedural dismissal patterns rather than substantive merits reasoning.
+2. **Procedural-vs-substantive noise.** A large fraction of AAO dismissals never reach all three prongs. The data-science decision the maintainers studied closely (*In Re: 37289559*, AAO Mar. 7, 2025) reserved Prongs 2 and 3 under *INS v. Bagamasbad*, 429 U.S. 24, 25 (1976) and never reached merits on them. Including such cases in a bulk corpus teaches the model to mimic procedural dismissal patterns rather than substantive merits reasoning.
 3. **Appellate posture.** AAO de novo review under *Matter of Christo's, Inc.*, 26 I&N Dec. 537, 537 n.2 (AAO 2015) is still appellate in form — it focuses on whether the Director's decision can be sustained given the record at filing. That is a different question from "could this petitioner qualify if filing today with a developed record." Grounding our skill on appellate reasoning systematically distorts first-instance assessment.
 
 **What curated looks like.** Each AAO decision in our corpus is tagged with: (a) which prong was dispositive, (b) what specific substantive failure mode the decision teaches, (c) whether merits analysis on other prongs was reached. The model uses these decisions to illustrate failure modes, not to ground verdicts.
@@ -103,6 +103,13 @@ This rule alone produces visibly more accurate evaluations than the competition.
 - **EB-2 statutory basis:** INA § 203(b)(2), 8 U.S.C. § 1153(b)(2).
 
 **Why.** Without citations, "the rule is X" is just an assertion. With citations, the user (or their attorney) can verify the rule independently. This is the difference between a research tool and a black box.
+
+**Citation form — by case name, not by URL.** Legal citations in this repository use Bluebook-form case names (case name, volume, reporter, page, court, year) and **never** include direct URL links to specific case-text PDFs. Two reasons:
+
+1. **Verifiability is the reader's responsibility, with stable inputs.** The reader who wants to verify a citation can search by case name in the official source of their choice (the I&N Decisions volumes published by EOIR, the USCIS adjudication archive, Westlaw, Lexis, CourtListener, Google Scholar). Pointing them at a specific URL would be convenient but only if the URL is genuinely correct — and the cost of being wrong is severe in a legal-domain repository.
+2. **URL drift and content drift are real.** Government legal-text URLs change, get reorganized, and sometimes return HTTP 200 while serving the wrong document. We have no continuous-verification process for external URLs. The conservative discipline — name-only citations — eliminates both failure modes.
+
+**Hard rule for contributors and maintainers.** Do not add URL links to specific legal-case PDFs or case-text pages in this repository (README, CHANGELOG, METHODOLOGY, NOTICE, SKILL.md, references) unless the URL has been independently verified to serve the exact correct content *at the time the link is added*. HTTP 200 status is not verification — the actual content must be read and confirmed to match the citation. When in doubt, drop the URL and keep only the case name.
 
 ---
 
