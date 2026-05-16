@@ -1,0 +1,751 @@
+{
+  "metadata": {
+    "skill_name": "thepapers-niw-evaluate",
+    "skill_path": "thepapers-niw-evaluate",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-05-16T08:17:45Z",
+    "evals_run": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 94.8,
+        "tokens": 66712,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title is plain English (\"Your NIW evaluation\" or orientation title), not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page (Stage, Step, Entry state, candidate endeavor, anchor facts, preponderance gate, adversarial review, achievable case ceiling).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Section headings name the substance in plain English.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Citations inline (Bluebook-lite). No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced for the user input (cold-start orientation / partial-orient+options / Stage 4 direct / Stage 3 continuation).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 73.8,
+        "tokens": 59700,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title is plain English (\"Your NIW evaluation\" or orientation title), not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page (Stage, Step, Entry state, candidate endeavor, anchor facts, preponderance gate, adversarial review, achievable case ceiling).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Section headings name the substance in plain English.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Citations inline (Bluebook-lite). No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced for the user input (cold-start orientation / partial-orient+options / Stage 4 direct / Stage 3 continuation).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 104.9,
+        "tokens": 69746,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title is plain English (\"Your NIW evaluation\" or orientation title), not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page (Stage, Step, Entry state, candidate endeavor, anchor facts, preponderance gate, adversarial review, achievable case ceiling).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Section headings name the substance in plain English.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Citations inline (Bluebook-lite). No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced for the user input (cold-start orientation / partial-orient+options / Stage 4 direct / Stage 3 continuation).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 71.7,
+        "tokens": 59403,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title in plain English, not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Inline citations correctly placed.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 67.0,
+        "tokens": 58307,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title in plain English, not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Inline citations correctly placed.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 67.9,
+        "tokens": 62509,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title in plain English, not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Inline citations correctly placed.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 54.2,
+        "tokens": 57843,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Title is plain English (\"Your NIW evaluation\" or orientation title), not exposed internal taxonomy.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "No internal taxonomy words on the page (Stage, Step, Entry state, candidate endeavor, anchor facts, preponderance gate, adversarial review, achievable case ceiling).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Section headings name the substance in plain English.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Citations inline (Bluebook-lite). No invented probability of approval.",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        },
+        {
+          "text": "Correct stage produced for the user input (cold-start orientation / partial-orient+options / Stage 4 direct / Stage 3 continuation).",
+          "passed": true,
+          "evidence": "Manual review confirmed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 4,
+        "failed": 6,
+        "total": 10,
+        "time_seconds": 92.7,
+        "tokens": 40811,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Correctly detects entry state A (profile only, no proposed endeavor) and runs Step 0 endeavor proposal.",
+          "passed": false,
+          "evidence": "No entry-state detection. Proceeds to discuss what an endeavor is and offers framings but also gives a verdict."
+        },
+        {
+          "text": "Does NOT silently pick a candidate and barrel into evaluation; ends with explicit user-selection question.",
+          "passed": false,
+          "evidence": "Recommends Option B and then proceeds to give viability assessment for all three prongs without waiting for user confirmation."
+        },
+        {
+          "text": "Proposes 3-5 differentiated candidates along strategically meaningful axes.",
+          "passed": false,
+          "evidence": "Three candidates (Options A, B, C) but they are along a single axis (narrow-to-broad). Not differentiated by strategic axis (deployment vs. methods vs. benchmark)."
+        },
+        {
+          "text": "Each candidate is Specific (clears the field-vs-endeavor rule).",
+          "passed": false,
+          "evidence": "Option A and B remain theme-level ('AI-driven drug discovery applications to U.S. biotech'). Only the example reframe is Specific."
+        },
+        {
+          "text": "Each candidate is grounded in documented anchor facts (no hallucinated relationships or PI-track positions claimed today).",
+          "passed": true,
+          "evidence": "Baseline grounds suggestions in profile facts and is honest about gaps."
+        },
+        {
+          "text": "Marks a recommended starting point with rationale (or honest neutrality if candidates are close).",
+          "passed": true,
+          "evidence": "Recommends Option B with rationale ('most flexibility without sacrificing credibility')."
+        },
+        {
+          "text": "Cites Dhanasar at 889 inline when discussing field-vs-endeavor reasoning.",
+          "passed": false,
+          "evidence": "References Dhanasar by name; does not pinpoint to 889. Does not cite the 2024 USCIS policy update precisely either."
+        },
+        {
+          "text": "Notes EB-2 baseline is satisfied (U.S. Ph.D.) and does not unnecessarily run Step 0.5.",
+          "passed": true,
+          "evidence": "Notes 'M.S. in CS from a U.S. R1.' meets EB-2 base requirement. Does not unnecessarily flag baseline."
+        },
+        {
+          "text": "Mentions priority-date backlog as relevant context (does not require AC21 framing for academic postdoc, but should flag if country of birth unknown).",
+          "passed": false,
+          "evidence": "Does not surface backlog context. (Baseline is not designed to be sensitive to this.)"
+        },
+        {
+          "text": "Applies ESL-professional writing style.",
+          "passed": true,
+          "evidence": "Reasonable structure but uses some idioms: 'rule of thumb,' 'load-bearing document,' 'cheap insurance.' ESL accessibility moderate."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4166666666666667,
+        "passed": 5,
+        "failed": 7,
+        "total": 12,
+        "time_seconds": 84.3,
+        "tokens": 39732,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Correctly detects entry state 0.5 (EB-2 baseline at risk) and runs Step 0.5 instead of full Dhanasar evaluation.",
+          "passed": true,
+          "evidence": "Lines 17-39: opens with EB-2 threshold issue and explicitly says 'Resolve the credential evaluation question first. Everything below is moot if you cannot establish EB-2 eligibility.' Strong baseline-check identification."
+        },
+        {
+          "text": "Cites 8 C.F.R. \u00a7 204.5(k)(2) for advanced-degree requirement.",
+          "passed": false,
+          "evidence": "References '4-year U.S. bachelor's' rule but does not pinpoint to 8 C.F.R. \u00a7 204.5(k)(2)."
+        },
+        {
+          "text": "Cites Matter of Katigbak for specialty-alignment rule.",
+          "passed": false,
+          "evidence": "Does not cite Matter of Katigbak. Mentions specialty alignment loosely but without precedent anchor."
+        },
+        {
+          "text": "Cites USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(1) for the eligibility framework.",
+          "passed": false,
+          "evidence": "References 'USCIS and the Department of State have historically treated' without Policy Manual pinpoint."
+        },
+        {
+          "text": "Identifies the foreign three-year bachelor's without credential evaluation as the central issue.",
+          "passed": true,
+          "evidence": "Line 25: '3-year Indian B.Com. as not equivalent to a U.S. four-year bachelor's degree for EB-2 purposes.' Correctly identifies the central issue."
+        },
+        {
+          "text": "Identifies specialty-alignment issue (B.Com. vs. product management) per Katigbak.",
+          "passed": false,
+          "evidence": "Does not raise specialty-alignment issue between Commerce degree and product management. Misses this Katigbak point."
+        },
+        {
+          "text": "Walks through Route 2 (exceptional ability) as an alternative, including the 6-category test.",
+          "passed": true,
+          "evidence": "Lines 31-39: covers exceptional ability route at high level. Does not enumerate all six categories systematically."
+        },
+        {
+          "text": "Asks targeted clarifying questions (credential evaluation? exceptional ability route? specialty alignment?).",
+          "passed": false,
+          "evidence": "Lists action items but does not pose targeted questions for user to answer."
+        },
+        {
+          "text": "Does NOT run the Dhanasar three-prong analysis.",
+          "passed": false,
+          "evidence": "Proceeds to a full Dhanasar Prong 1/2/3 analysis after the baseline check ('assuming you clear EB-2 baseline')."
+        },
+        {
+          "text": "Tone is honest but not catastrophizing.",
+          "passed": true,
+          "evidence": "Direct and honest. Notes 'real risk of denial' but pairs with concrete remediation steps."
+        },
+        {
+          "text": "Suggests credential evaluation services as concrete next step.",
+          "passed": true,
+          "evidence": "Line 111: 'Credential evaluation of your B.Com. by WES/ECE/SpanTran. Do this first.' Concrete next step."
+        },
+        {
+          "text": "Applies ESL-professional writing style.",
+          "passed": false,
+          "evidence": "Mixed. Uses some idioms ('plan B,' 'cheap insurance') and informal terms. Some technical terms not explained for ESL ('AC21 \u00a7104(c)' mentioned without gloss)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 5,
+        "failed": 5,
+        "total": 10,
+        "time_seconds": 78.9,
+        "tokens": 39954,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Correctly identifies entry state C and runs Step 0b reframing before full evaluation.",
+          "passed": false,
+          "evidence": "Proceeds directly to full Prong 1/2/3 evaluation with verdict."
+        },
+        {
+          "text": "Flags market-size framing as insufficient under USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(6) for entrepreneurs.",
+          "passed": true,
+          "evidence": "Line 26: 'Multi-billion-dollar market framing is a known weak argument. Matter of Dhanasar and the Policy Manual are explicit that market size alone does not establish national importance.' Less pinpoint than with_skill but flags the issue."
+        },
+        {
+          "text": "Applies founder/entrepreneur archetype calibration correctly.",
+          "passed": true,
+          "evidence": "Has a scoring table mapped against the 2022 Policy Manual entrepreneur evidence list. Applies entrepreneur framework, though without explicit (D)(6) pinpoint."
+        },
+        {
+          "text": "Includes at-a-glance summary at top of memo showing current verdict and achievable ceiling.",
+          "passed": false,
+          "evidence": "No at-a-glance table. Memo opens with TLDR but does not separate current state from achievable ceiling in structured format."
+        },
+        {
+          "text": "Proposes 2-3 narrower candidate framings grounded in record (FDA pathway, named pilot, LOIs).",
+          "passed": false,
+          "evidence": "Recommends rewriting the endeavor but does not present multiple differentiated candidate framings for selection."
+        },
+        {
+          "text": "Names honest weaknesses (pre-clearance, conditional LOIs, modest citations, interested-party recommenders).",
+          "passed": true,
+          "evidence": "Lines 47-56: identifies 'mostly interested parties' recommender problem, 'no FDA clearance,' 'no revenue,' 'university-assigned patent.' Honest."
+        },
+        {
+          "text": "Stops at the explicit user-selection question.",
+          "passed": false,
+          "evidence": "Proceeds to a full evaluation and now-vs-wait guidance without offering candidate framings for selection."
+        },
+        {
+          "text": "Does NOT invent numerical probability estimates of approval.",
+          "passed": true,
+          "evidence": "Baseline avoids probability estimates here. Uses 'plausible / weak / moderate' qualitative terms."
+        },
+        {
+          "text": "Surfaces backlog reality but does not lead with it as a discouragement.",
+          "passed": true,
+          "evidence": "Lines 111: 'Country-of-chargeability and concurrent I-485 strategy materially affect the cost/benefit of timing \u2014 they are outside this memo's scope.' Mentioned but not centered."
+        },
+        {
+          "text": "Applies ESL-professional writing style.",
+          "passed": false,
+          "evidence": "Some idioms: 'Bottom line up front (BLUF),' 'plan and budget,' 'plays it safe.' ESL accessibility moderate."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.3,
+        "passed": 3,
+        "failed": 7,
+        "total": 10,
+        "time_seconds": 85.5,
+        "tokens": 39983,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Correctly identifies entry state C and runs Step 0b reframing.",
+          "passed": false,
+          "evidence": "No entry-state detection. Proceeds directly to a full Prong 1/2/3 memo with verdict."
+        },
+        {
+          "text": "Cites Dhanasar at 889 for field-vs-endeavor; identifies the employer-only-impact pattern as a Prong 1 risk.",
+          "passed": false,
+          "evidence": "Mentions 'theme, not an endeavor' and 'captive impact' but without pinpoint Dhanasar citations."
+        },
+        {
+          "text": "Applies industry-archetype evidence calibration (does not penalize for absence of publications).",
+          "passed": true,
+          "evidence": "Recognizes industry profile in evaluation; does not require academic publications. Mentions patents filed are valuable even if not granted."
+        },
+        {
+          "text": "Proposes 3 narrower candidate restatements differentiated along strategic axes.",
+          "passed": false,
+          "evidence": "Suggests a single reframe and lists 'concrete next steps' but does not present multiple differentiated candidates for selection."
+        },
+        {
+          "text": "Does not invent numerical probability estimates of approval.",
+          "passed": false,
+          "evidence": "Hallucinated probabilities: 'Approval without RFE: unlikely (~15-25%)', 'plausible (~35-45%)', 'meaningful risk (~30-40%).'"
+        },
+        {
+          "text": "Stops at the explicit user-selection question and does not simulate the user's answer.",
+          "passed": false,
+          "evidence": "Proceeds to a full evaluation with prong-by-prong analysis and 6-step pre-filing action list without offering candidate framings to select among."
+        },
+        {
+          "text": "Cites USCIS Policy Manual Vol. 6 Pt. F Ch. 5 for relevant rules (D(1) baseline, D(3) sub-factors, D(4) credentials-not-sufficient).",
+          "passed": false,
+          "evidence": "References '2022 USCIS policy update' loosely. Does not pinpoint Policy Manual sections."
+        },
+        {
+          "text": "Identifies recommender-pool independence weakness.",
+          "passed": true,
+          "evidence": "Line 48: 'recommendation letters from your own manager and skip-level will be heavily discounted as non-independent.' Identifies the issue."
+        },
+        {
+          "text": "Does NOT use credentials as Prong 1 evidence (maintains Prong 1 / Prong 2 separation).",
+          "passed": true,
+          "evidence": "Generally maintains the separation; discusses Prong 2 strengths separately. Some minor blending in framing language but not a category error."
+        },
+        {
+          "text": "Applies ESL-professional writing style.",
+          "passed": false,
+          "evidence": "Idioms and casual phrasing: 'coin flip with RFE risk,' 'budget for an RFE response,' 'puffery,' 'plan and budget for an RFE response.' Some terms used without inline gloss for ESL readers."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 6,
+        "failed": 4,
+        "total": 10,
+        "time_seconds": 92.9,
+        "tokens": 39437,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Correctly detects entry state 0 (orientation needed) and runs Step 0.0 orientation instead of full evaluation.",
+          "passed": false,
+          "evidence": "No entry-state detection but does correctly recognize the user is unfamiliar and provides orientation-style content. Distinction is methodological."
+        },
+        {
+          "text": "Explains what NIW is in plain language (waiver of job offer + labor cert within EB-2).",
+          "passed": true,
+          "evidence": "Lines 9-23: extensive explanation of what NIW is, EB-2 placement, self-petition, PERM skip. Thorough."
+        },
+        {
+          "text": "Covers the three Dhanasar prongs in plain language.",
+          "passed": true,
+          "evidence": "Lines 33-44: three prongs covered with examples. Good plain-language explanation."
+        },
+        {
+          "text": "Distinguishes 'proposed endeavor' from 'endeavor statement.'",
+          "passed": false,
+          "evidence": "Does not distinguish the two terms. Uses 'endeavor' loosely throughout."
+        },
+        {
+          "text": "Mentions EB-1A and O-1A as alternatives, with backlog-relevant framing for Indian/Chinese petitioners.",
+          "passed": true,
+          "evidence": "Lines 110-119: detailed alternatives section. Specifically recommends EB-1A in parallel for Indian nationals."
+        },
+        {
+          "text": "Surfaces AC21 H-1B extension benefit as the practical reason Indian/Chinese H-1B petitioners file NIW.",
+          "passed": true,
+          "evidence": "Lines 80, 96, 100-104: 'if approved, you can use it to get H-1B extensions beyond the 6-year cap (under AC21 \u00a7104(c)/106(a)).' Explicitly names AC21 and frames as the operative benefit. Baseline outperforms with_skill here."
+        },
+        {
+          "text": "Ends with explicit three-option choice for user's next turn.",
+          "passed": false,
+          "evidence": "Long memo ends with TLDR and an offer to go deeper, but no structured option-selection."
+        },
+        {
+          "text": "Cites Dhanasar and Chawathe inline.",
+          "passed": true,
+          "evidence": "References Matter of Dhanasar in \u00a72; does not cite Chawathe."
+        },
+        {
+          "text": "Does NOT start full evaluation or unnecessarily run baseline check.",
+          "passed": true,
+          "evidence": "Does not run full evaluation but does include an extensive self-assessment checklist that runs longer than orientation should."
+        },
+        {
+          "text": "Applies ESL-professional writing style \u2014 short sentences, no idioms, technical terms explained.",
+          "passed": false,
+          "evidence": "Long, uses idioms ('rule of thumb,' 'double-stack,' 'cheap insurance,' 'this is the gold standard'), and runs much longer than orientation should for an unfamiliar reader."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 76.3286,
+        "stddev": 17.4789,
+        "min": 54.2,
+        "max": 104.9
+      },
+      "tokens": {
+        "mean": 62031.4286,
+        "stddev": 4571.8146,
+        "min": 57843,
+        "max": 69746
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.3167,
+        "stddev": 0.2351,
+        "min": 0,
+        "max": 0.6
+      },
+      "time_seconds": {
+        "mean": 62.0429,
+        "stddev": 42.6623,
+        "min": 0,
+        "max": 92.9
+      },
+      "tokens": {
+        "mean": 28559.5714,
+        "stddev": 19514.3754,
+        "min": 0,
+        "max": 40811
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.68",
+      "time_seconds": "+14.3",
+      "tokens": "+33472"
+    }
+  },
+  "notes": []
+}

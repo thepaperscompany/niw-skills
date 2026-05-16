@@ -1,0 +1,53 @@
+{
+  "skill_name": "thepapers-niw-evaluate",
+  "evals": [
+    {
+      "id": 0,
+      "name": "academic-postdoc-prospective",
+      "prompt": "I'm a postdoc in computational biology in the U.S. on a J-1 visa. I want to apply for an EB-2 NIW but my advisor said my case might not be strong yet. Can you give me an honest evaluation of where I stand and what I should be working on if I want to file in the next 12–18 months? My profile and proposed endeavor are in the attached file. Please be direct — I'd rather hear the truth now than waste an I-140 fee.",
+      "files": ["evals/fixtures/academic-postdoc-protein-structure.md"],
+      "expected_output": "Memo that (a) flags the endeavor as Too Broad with a suggested narrower restatement, (b) identifies citation-independence as a Prong 2 gap, (c) identifies grant role as contributor-not-PI under the In Re: 37289559 pattern, (c) caps Prong 1 at High Risk or Needs Development given field-only framing, (d) populates the case ceiling with concrete 12–18 month prerequisites, (e) cites Dhanasar and Chawathe inline.",
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "industry-ml-engineer-theme-endeavor",
+      "prompt": "I'm a senior ML engineer at a major social media platform. I've built large-scale safety systems and I'm considering filing an EB-2 NIW self-petition. My profile and proposed endeavor are attached. How would a USCIS adjudicator view my case under the current standard?",
+      "files": ["evals/fixtures/industry-ml-engineer-content-mod.md"],
+      "expected_output": "Memo that (a) identifies the field-vs-endeavor confusion in the proposed endeavor and proposes a narrower restatement grounded in the petitioner's documented work, (b) flags the employer-only-benefit pattern as a Prong 1 risk per Dhanasar p. 889-90, (c) identifies the absence of external adoption / customer references / standards-body work as Prong 2 weaknesses, (d) does NOT apply academic evidence standards (publications) to an industry profile, (e) Prong 2 can be Promising on the strength of documented scale, but the patent-not-licensed and internal-only-impact weaknesses prevent Strong, (f) cites the relevant authorities inline.",
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "founder-medical-imaging-marketsize",
+      "prompt": "I'm a startup founder/CTO. We are in pre-revenue stage but have funding, a pilot agreement, and FDA submission planned. Should I file an EB-2 NIW now or wait? Please give me a structured evaluation. My profile and endeavor are attached.",
+      "files": ["evals/fixtures/founder-medical-imaging-startup.md"],
+      "expected_output": "Memo that (a) flags the market-size/Critical-and-Emerging-Technologies-List framing as insufficient under USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(6) and Dhanasar p. 889, (b) applies entrepreneur-specific evidence calibration (named pilot, named LOIs, named angel investors are positive but pre-product/pre-FDA reduces the strength), (c) the case is Not Filing-Ready or borderline Needs Targeted Evidence Gathering, with FDA clearance and pilot results identified as ceiling-driving prerequisites, (d) ceiling reaches Strong Candidate within 12–18 months conditional on FDA clearance + named clinical use + independent radiologist letters tied to the specific product, (e) cites authorities inline.",
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "name": "academic-postdoc-no-endeavor",
+      "prompt": "I'm a postdoc in computational biology and I'm interested in EB-2 NIW. I don't really know what a 'proposed endeavor' is supposed to look like for someone like me — can you look at my profile (attached) and help me figure out what I should file under, and whether the case is even viable?",
+      "files": ["evals/fixtures/academic-postdoc-no-endeavor.md"],
+      "expected_output": "Skill detects entry state A (no endeavor provided) and runs Step 0 first. Output includes (a) 3-5 candidate endeavors that differ along strategic axes (e.g., methods-and-adoption framing, industry-partnership framing, academic-program framing), (b) each candidate is Specific (clears the field-vs-endeavor rule), (c) each candidate is grounded in documented anchor facts from the profile (no fabricated relationships), (d) each candidate includes honest weaknesses under that framing, (e) anticipated likelihood ceiling and estimated prep months per candidate, (f) a recommended starting candidate with rationale (or honest neutrality if candidates are close), (g) an explicit ask for the user to select one before proceeding to full evaluation. The skill does NOT silently pick one and barrel into evaluation. Cites Dhanasar at 889 inline when discussing the field-vs-endeavor reasoning. Writing uses ESL-professional tone — short sentences, no idioms, technical terms explained.",
+      "assertions": []
+    },
+    {
+      "id": 4,
+      "name": "orientation-new-to-niw",
+      "prompt": "Hi, my senior at work mentioned I should look into something called NIW for my green card. I'm an Indian citizen working in the U.S. on an H-1B as a senior data engineer at a Fortune 500 company. I have a master's in CS from a U.S. university. I have no idea what NIW is or whether it's right for me. Can you help me figure out if I should pursue this?",
+      "files": ["evals/fixtures/orientation-new-to-niw.md"],
+      "expected_output": "Skill detects entry state 0 (orientation needed). Output is a short orientation covering: (a) what NIW is in 2-3 plain sentences, (b) the three Dhanasar prongs each in one sentence, (c) the distinction between proposed endeavor and endeavor statement, (d) a brief comparison to EB-1A and O-1A, (e) explicit priority-date backlog warning for Indian nationals with a link to thepapers.co/bulletin/estimate, (f) ends with an explicit three-option choice for the user (proceed with NIW, compare to other pathways first, learn more). Skill does NOT jump into evaluation or endeavor proposal. Output uses ESL-professional tone — no idioms, technical terms (preponderance, Dhanasar, EB-2) explained on first use, short sentences. Cites Dhanasar inline.",
+      "assertions": []
+    },
+    {
+      "id": 5,
+      "name": "eb2-baseline-at-risk",
+      "prompt": "I'm a senior product manager and I want to apply for EB-2 NIW. My profile and proposed endeavor are attached. Can you evaluate my case?",
+      "files": ["evals/fixtures/eb2-baseline-at-risk.md"],
+      "expected_output": "Skill detects entry state 0.5 (EB-2 baseline at risk) due to foreign three-year bachelor's degree without master's. Output is a baseline-check response that: (a) explicitly flags EB-2 baseline eligibility as at risk BEFORE running any NIW prong analysis, (b) cites 8 C.F.R. § 204.5(k)(2) and USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(1) explaining the legal basis, (c) explains the specific issue: a 3-year foreign bachelor's is generally not equivalent to a U.S. bachelor's, and there is no master's, so EB-2 baseline likely fails Route 1, (d) asks targeted clarifying questions: does the user have a credential evaluation showing equivalence? has the user considered exceptional ability under 8 C.F.R. § 204.5(k)(3)(ii)? (e) does NOT run the full 13-step NIW evaluation, because doing so would be unreliable, (f) suggests next steps including credential evaluation services and consulting an attorney about alternative pathways. Tone is direct but not catastrophizing.",
+      "assertions": []
+    }
+  ]
+}

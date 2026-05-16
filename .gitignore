@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Eval iteration workspace — transient outputs from skill-creator iteration loop.
+# Fixtures and evals.json live with the skill at thepapers-niw-evaluate/evals/.
+# Published validation numbers live at evaluation/benchmark.json and evaluation/benchmark.md.
+thepapers-niw-evaluate-workspace/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# OS-generated
+Thumbs.db
