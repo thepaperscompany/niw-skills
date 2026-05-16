@@ -1,0 +1,37 @@
+NIW Skills — by The Papers Company
+Copyright 2026 The Papers Company
+
+This product includes software developed by The Papers Company
+(https://thepapers.co) and distributed at
+https://github.com/thepaperscompany/niw-skills.
+
+Licensed under the Apache License, Version 2.0. See LICENSE for the full
+license text.
+
+----
+
+Important notices for users and distributors:
+
+1. The outputs of skills in this plugin are research-grade legal analysis,
+   not legal advice. Use of this plugin does not create an attorney-client
+   relationship with The Papers Company or any contributor. See DISCLAIMER.md.
+
+2. USCIS adjudication is discretionary; even a strong case is not a
+   guarantee of approval. See Flores v. Garland, 72 F.4th 85, 88
+   (5th Cir. 2023).
+
+3. The Papers Company is not a law firm and does not operate a lawyer
+   referral service. Users are responsible for engaging licensed
+   immigration counsel of their own choosing before filing.
+
+4. "The Papers Company," "Immigration Papers," and "thepapers-niw" are
+   trademarks or service marks of The Papers Company. This Apache 2.0
+   license does not grant permission to use these marks, except as
+   required for describing the origin of the Work and reproducing the
+   content of this NOTICE file (per Apache 2.0 Section 6).
+
+5. The legal substance of skills in this plugin is calibrated to the
+   USCIS adjudication standard as of the version date in each skill's
+   SKILL.md frontmatter and the entries in CHANGELOG.md. Adjudication
+   standards change; users are responsible for confirming the analysis
+   reflects current practice before filing.

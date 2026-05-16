@@ -1,7 +1,7 @@
 ---
 name: niw-evaluate
 description: Evaluate a U.S. EB-2 National Interest Waiver (NIW) self-petition under the current USCIS adjudication standard, applying preponderance-of-the-evidence prong by prong under Matter of Dhanasar. Use whenever the user asks about NIW eligibility, whether their case is strong enough, how an adjudicator would view their proposed endeavor and credentials, whether to file, or what to file under if they have not yet articulated a proposed endeavor — the skill proposes options grounded in the user's record before evaluating. Also use for prospective applicants (including master's and PhD international students 3–5 years from filing) asking where they stand today and what to build over 6–60 months to stay on the NIW path. Invoke even when the user asks casually ("is my background good enough", "should I do NIW", "how strong is my case"); informal estimates produce denied petitions and lost filing fees.
-license: MIT
+license: Apache-2.0
 ---
 
 # niw-evaluate

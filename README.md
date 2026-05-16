@@ -169,7 +169,9 @@ Outputs are research-grade legal analysis, not legal advice. See [DISCLAIMER.md]
 
 ## License
 
-MIT. See [LICENSE](./LICENSE).
+Apache License 2.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
+
+Apache 2.0 was chosen over MIT for three reasons specific to this project: (1) **trademark protection** — Section 6 explicitly says the license does not grant rights to use the contributor's trademarks, which matters for "The Papers Company" and "thepapers-niw" branding; (2) **patent grant** — Section 3 gives users certainty that no contributor can later sue them over patent claims, which lowers adoption friction for enterprise users; (3) **ecosystem alignment** — the Claude SDK and most Anthropic-ecosystem tooling use Apache 2.0.
 
 ## Disclaimer
 

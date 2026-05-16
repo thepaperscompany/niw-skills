@@ -16,6 +16,18 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Plugin — 0.2.1 — license switch
+
+**License changed from MIT to Apache License 2.0** ([SPDX: `Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html)). Chosen over MIT for three reasons specific to this project:
+
+1. **Trademark protection** — Apache 2.0 Section 6 explicitly states the license does not grant rights to use the contributor's trademarks. This matters for "The Papers Company," "Immigration Papers," and "thepapers-niw" branding; if a third party forks and rebrands, Apache 2.0 gives a clearer formal lever beyond trademark law.
+2. **Patent grant** — Apache 2.0 Section 3 gives users a perpetual, royalty-free patent license from each contributor for patent claims necessarily infringed by their contributions. This lowers adoption friction for enterprise users whose legal teams flag MIT for the absence of an explicit patent grant.
+3. **Ecosystem alignment** — the Claude SDK and most Anthropic-ecosystem tooling use Apache 2.0.
+
+Files updated: `LICENSE` (Apache 2.0 text), new `NOTICE` file (trademark notice + plugin-specific disclaimers), `thepapers-niw/.claude-plugin/plugin.json` (`"license": "Apache-2.0"`), `thepapers-niw/skills/niw-evaluate/SKILL.md` frontmatter (`license: Apache-2.0`), `README.md` (License section explains the change), `dist/*` (rebuilt artifacts).
+
+Done now because the repo is freshly published with no external contributors yet — license changes are clean and unilateral at this stage. Once contributors arrive, license changes require their consent or a contributor license agreement.
+
 ### Plugin — 0.2.0
 
 **Restructured to the [official Claude Code plugin format](https://code.claude.com/docs/en/plugins).** The repo now contains a real plugin directory at `thepapers-niw/` with `.claude-plugin/plugin.json` and a `skills/` subdirectory. Skills inside the plugin are namespaced — `niw-evaluate` is invoked as `/thepapers-niw:niw-evaluate` once the plugin is loaded.
