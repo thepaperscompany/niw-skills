@@ -208,7 +208,7 @@ Tell me which option you want to evaluate against (or describe a different direc
 
 ## Disclaimers
 
-[Standard.]
+[Use the standard disclaimer text in §"Standard disclaimer text" below — verbatim. Do not improvise.]
 ```
 
 When the user came in with a too-broad endeavor rather than no endeavor, reduce the options to 2–3 narrower restatements of their framing rather than 4 fresh options. The options must still be Specific.
@@ -323,12 +323,26 @@ Running the full evaluation against the proposed endeavor you selected: *"[endea
 
 ## Disclaimers
 
-[Standard.]
+[Use the standard disclaimer text in §"Standard disclaimer text" below — verbatim. Do not improvise.]
 ```
 
 For Indian or Chinese H-1B petitioners, include one short paragraph inline (no separate section) noting the AC21 H-1B extension benefit and I-140 portability. Place it after "Where the case stands today" or inside "What to do now."
 
 If the user asks for a shorter form ("just the verdict"), produce only the opening, "Where the case stands today," "What the case could look like in [N] months," and disclaimers.
+
+---
+
+## Standard disclaimer text — use verbatim
+
+The "Disclaimers" section at the end of every memo (Shape A and Shape B alike) **must use this exact text**. Do not paraphrase, do not improvise, and **do not invent disclaimer URLs**. Copy this block verbatim into the output:
+
+> This evaluation is informational and is not legal advice. It does not create an attorney–client relationship. USCIS adjudication is discretionary, and even a strong case is not a guarantee of approval. *See Flores v. Garland*, 72 F.4th 85, 88 (5th Cir. 2023). Before filing, have your case reviewed by a licensed U.S. immigration attorney. Full disclaimer: [github.com/thepaperscompany/niw-skills/blob/main/DISCLAIMER.md](https://github.com/thepaperscompany/niw-skills/blob/main/DISCLAIMER.md).
+
+Hard rules:
+
+1. **Never invent a disclaimer URL.** The only acceptable disclaimer URL is the GitHub one above. Do not write `thepapers.co/disclaimer` or any other domain unless the user has provided one.
+2. **Never alter the substance.** "Not legal advice," "discretionary adjudication," "*Flores v. Garland* citation," and the attorney-review recommendation are mandatory components.
+3. The disclaimer can be lightly reformatted (e.g., split across lines for readability) but every claim and every link must remain exact.
 
 ### Stage 5 — Follow-ups
 
