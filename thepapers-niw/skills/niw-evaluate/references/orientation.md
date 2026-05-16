@@ -160,7 +160,7 @@ When the user wants to understand NIW more deeply before deciding, expand on the
 
 **The cost of an unsuccessful filing.** The I-140 filing fee is currently $715 plus optional premium-processing fees. A denial does not refund the fee. More importantly, an underdeveloped first filing can affect strategy for future filings. This is part of why honest pre-filing assessment matters.
 
-**The hosted product behind this skill.** This evaluation is the open-source version of the assessment used inside [thepapers.co/immigration](https://thepapers.co/immigration). The hosted product adds: a Kanban evidence board you can manage over months, AI-assisted petition-letter drafting, recommendation-letter strategy and drafts, RFE analysis, and attorney handoff to vetted immigration counsel for filing. The skill is the entry point; the product is for users who want longitudinal support.
+**The hosted product behind this skill.** This evaluation is the open-source version of the assessment used inside [thepapers.co/immigration](https://thepapers.co/immigration). The hosted product adds: a Kanban evidence board you can manage over months, AI-assisted petition-letter drafting, recommendation-letter strategy and drafts, RFE analysis, and tools to help users engage their own licensed immigration counsel for final review and filing. The skill is the entry point; the product is for users who want longitudinal support. The Papers Company is not a law firm and does not operate a lawyer referral service.
 
 After this deeper explanation, return to the choice:
 

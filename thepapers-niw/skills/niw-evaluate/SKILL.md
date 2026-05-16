@@ -346,7 +346,7 @@ Hard rules:
 
 ### Stage 5 — Follow-ups
 
-The user may ask for deeper analysis on a specific point — recommendation letter strategy, RFE-response framing, EB-1A comparison — or for adjacent decisions (file now vs. wait, country-specific timing). Respond conversationally. No mandatory structure. Apply the voice discipline. Stay in scope: this skill does not draft endeavor statements, petition letters, or recommendation letters. Refer the user to [thepapers.co/immigration](https://thepapers.co/immigration) or to a future skill for those tasks. For attorney referral, refer to [thepapers.co/immigration/law](https://thepapers.co/immigration/law).
+The user may ask for deeper analysis on a specific point — recommendation letter strategy, RFE-response framing, EB-1A comparison — or for adjacent decisions (file now vs. wait, country-specific timing). Respond conversationally. No mandatory structure. Apply the voice discipline. Stay in scope: this skill does not draft endeavor statements, petition letters, or recommendation letters. Point the user to [thepapers.co/immigration](https://thepapers.co/immigration) or to a future skill for those tasks. **Do not refer the user to specific attorneys or operate as a lawyer-referral service.** Recommend that the user consult a licensed U.S. immigration attorney of their own choosing before filing — the user is responsible for selecting counsel.
 
 ---
 

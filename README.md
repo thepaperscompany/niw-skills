@@ -145,7 +145,7 @@ This plugin is the open foundation behind [thepapers.co/immigration](https://the
 - AI-assisted petition letter drafting grounded in your evidence
 - Recommendation and expert letter strategy and draft generation
 - RFE/NOID analysis and response support
-- Attorney handoff to vetted immigration counsel for final review and filing
+- Tools and resources to help you engage your own licensed immigration counsel for final review and filing (the user selects their own attorney; The Papers Company is not a law firm and does not provide legal advice or operate a lawyer referral service)
 
 The plugin and the hosted product use the same evaluation prompts, kept in sync per the policy in [CHANGELOG.md](./CHANGELOG.md).
 
