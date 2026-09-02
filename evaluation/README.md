@@ -1,37 +1,50 @@
-# Evaluation results
+# Evaluation
 
-This directory contains the published validation numbers for `thepapers-niw-evaluate`.
+Cases live at [`thepapers-niw/evals/`](../thepapers-niw/evals/), authored in the format `claude plugin eval` expects: each case is a directory with a `prompt.md` carrying frontmatter, a `graders/` directory of typed graders, and a `workspace/` holding the case's input files.
 
-The skill was validated against seven eval fixtures spanning the full conversation taxonomy:
+`claude plugin eval` is the official harness and is currently early access. Until it is available here, [`tests/run_evals.py`](../tests/run_evals.py) runs the same cases and applies the same with-plugin / without-plugin ablation, so the suite is measured rather than aspirational.
 
-1. **Cold-start orientation**: Indian H-1B petitioner asks "what is NIW?" (Stage 1 only)
-2. **Postdoc, no endeavor, partial unfamiliarity**: orientation folded into options (Stage 1 + Stage 2)
-3. **Postdoc, specific endeavor**: direct full evaluation (Stage 4)
-4. **Postdoc picks Option A**: continuation from a prior turn (Stage 3 → Stage 4)
-5. **Industry ML engineer, theme-level endeavor**: endeavor reframing for a too-broad framing
-6. **Founder, market-size endeavor**: entrepreneur reframing under USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(6)
-7. **EB-2 baseline at risk**: eligibility pre-check before any Dhanasar analysis
+```bash
+tests/run_evals.py                        # every case, both arms
+tests/run_evals.py --case forms-*         # filter by name
+tests/run_evals.py --arms with            # skip the baseline arm
+tests/run_evals.py --judge-votes 3        # judge samples per LLM grader
+```
 
-All seven fixtures are reproducible, they live at `thepapers-niw-evaluate/evals/fixtures/`.
+## What we measure, and why the baseline arm matters
 
-## Headline result
+Every case runs twice: once with the plugin loaded, once without. The number that matters is the **delta**, because a case the base model already passes tells you the skill adds nothing there. Reporting only the with-plugin score would let a suite of easy cases look like evidence of quality.
 
-| Metric | With skill | Without skill (baseline Claude) | Delta |
-|---|---|---|---|
-| **Assertion pass rate** | **100%** (35/35) | **31.7%** (10/35) | **+68 percentage points** |
-| Mean time per run | 76 s | 87 s | -11 s |
-| Mean tokens per run | 62k | 40k | +22k |
+We do not tune a fixture until it produces a delta. A case that shows no delta is kept and reported as showing no delta.
 
-The pass rate is against rubric-based assertions per fixture: correct entry-state detection; correct stage produced; voice discipline (no internal taxonomy leaked to user); inline citation hygiene; no invented probability of approval; archetype-appropriate evidence calibration.
+## Results
 
-## Files
+Measured 2026-09-02, one run per arm, three judge votes per LLM grader. One run per arm is a weak sample and the numbers below should be read as directional.
 
-- `benchmark.json`: full structured benchmark output with per-eval results, expectations, and analyst notes.
-- `benchmark.md`: human-readable summary table.
+| Case | With plugin | Baseline | Delta | What it tests |
+|---|---|---|---|---|
+| `forms-are-out-of-scope` | 100% | 40% | **+60** | Missing forms, fees and signatures must not be reported as deficiencies in the evidentiary record |
+| `filed-case-no-post-filing-cure` | 100% | 67% | **+33** | After filing, no cure may rest on a post-filing fact, and the endeavor may not be re-scoped |
+| `not-filed-exhibit-is-a-gap` | 100% | 100% | 0 | A document the petitioner holds but never sent is not record support |
+| `industry-endeavor-not-field` | pending | pending | pending | Field-level framing is not endeavor importance; industry records are not judged on publications |
+| `founder-market-size-insufficient` | not yet run | not yet run | | Market size and technology-list membership are framing, not proof |
+| `orientation-no-profile` | not yet run | not yet run | | No verdict on a one-sentence description; orient and ask |
 
-## Caveats
+### What the deltas actually show
 
-- N=1 per (eval, configuration). Stddev figures should not be interpreted as variance estimates.
-- Fixtures are synthetic profiles. Real-user testing pending.
-- Attorney sign-off pending separately.
-- The skill is calibrated to the USCIS adjudication standard as of the SKILL.md `version` date. Policy updates can change the standard at any time.
+**The endeavor lock is the sharpest single finding.** On a filed petition, the baseline recommended "a rewritten endeavor statement with actual specificity." Rewriting the endeavor after filing is a material change under *Matter of Izummi* and is held against the petitioner's consistency. It is the intuitive move and it is the one that damages the case. The plugin warned against it explicitly.
+
+**Scope discipline was the largest delta.** The baseline listed a missing Form I-140, filing fee and G-28 under "not present, and normally expected," treating out-of-scope filing mechanics as gaps in the evidentiary record.
+
+**Filing status showed no delta, and we are reporting that.** The case was first written with exhibits labelled `NOT FILED` in the manifest, which gave the answer away; the baseline passed. It was rewritten so filing status had to be inferred from a note in the package, and the baseline passed again. A capable model handles this without the skill. The discipline is still worth encoding, because it holds when a package is larger and messier than a fixture, but on this evidence it is not a differentiator and we will not claim it as one.
+
+## Known limitations
+
+- One run per arm. The official harness defaults to three, and variance at n=1 is real.
+- The remaining cases are unrun because the session hit a usage limit partway through.
+- LLM graders are sampled three times and decided by majority. A single sample was not reliable: it marked a correct response FAIL while its own justification described the response doing the right thing.
+- Fixtures are synthetic profiles, not real petitioner records.
+
+## Earlier results
+
+`benchmark.json` and `benchmark.md` hold the v0.1 numbers from the previous bespoke harness (seven fixtures, +68 percentage points over baseline on rubric assertions). Those were produced by a different harness with a different grading method and are not comparable to the table above. They are kept for history.

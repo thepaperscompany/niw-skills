@@ -16,6 +16,29 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Evals migrated to the `claude plugin eval` format, with a runner that works today
+
+**Cases now live at `thepapers-niw/evals/`** in the format `claude plugin eval` expects: `prompt.md` with frontmatter, `graders/*.md` typed by frontmatter (`regex`, `llm`, `tool_used`), and `workspace/` holding each case's input files. That harness is early access, so `tests/run_evals.py` runs the same cases now and applies the same with-plugin / without-plugin ablation. Cases port unchanged when the official harness is available.
+
+**Six cases**, four of them written to catch a regression that would actually cost a petitioner something: filing status of an unsent exhibit, the post-filing lock on facts and on the endeavor, scope discipline about forms and fees, and field-versus-endeavor framing.
+
+**Measured deltas** (2026-09-02, one run per arm, three judge votes per grader; directional at this sample size):
+
+| Case | With | Baseline | Delta |
+|---|---|---|---|
+| `forms-are-out-of-scope` | 100% | 40% | +60 |
+| `filed-case-no-post-filing-cure` | 100% | 67% | +33 |
+| `not-filed-exhibit-is-a-gap` | 100% | 100% | 0 |
+
+The sharpest finding: on a filed petition the baseline recommended "a rewritten endeavor statement with actual specificity." Rewriting the endeavor after filing is a material change under *Matter of Izummi*, held against the petitioner's consistency. It is the intuitive move and it is the one that damages the case.
+
+**We are reporting the zero.** The filing-status case was first written with exhibits labelled `NOT FILED` in the manifest, which gave the answer away. Rewritten so the status had to be inferred from a note in the package, the baseline passed again. A capable model handles this without the skill. The discipline is still encoded, because it holds when a package is larger and messier than a fixture, but it is not a differentiator on this evidence and is not claimed as one. Fixtures are not tuned until they produce a delta.
+
+**The runner distinguishes a judge failure from a substantive failure.** It originally scored "the judge could not run" as FAIL, which invented a regression that had not happened when the session hit a usage limit. Judge errors and unparseable verdicts are now reported as unjudged and excluded from the score. `tests/test_runner_logic.py` covers this and the rest of the grading logic offline, and runs in CI.
+
+**LLM graders are sampled three times and decided by majority**, as the official harness does. A single sample marked a correct response FAIL while its own justification described the response doing the right thing.
+
+
 ### Plugin, 0.4.0, `niw-package-review`
 
 **New skill: [`niw-package-review`](thepapers-niw/skills/niw-package-review).** An adversarial review of an assembled package before filing. It reads the actual exhibits, recommendation letters and petition draft, rather than a profile, and asks whether the record in front of it carries the burden. An impressive profile whose claims are not documented in the package is not a strong case.

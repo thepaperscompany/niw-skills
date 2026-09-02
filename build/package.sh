@@ -22,6 +22,9 @@ python3 scripts/check_quote_integrity.py
 echo "==> Checking the bundled validators behave as specified"
 tests/run_script_tests.sh
 
+echo "==> Checking the eval runner's grading logic"
+python3 tests/test_runner_logic.py
+
 echo "==> Validating the plugin"
 if command -v claude >/dev/null 2>&1; then
   claude plugin validate ./thepapers-niw --strict || {

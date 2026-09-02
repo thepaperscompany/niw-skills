@@ -60,6 +60,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Bundled validators catch what they claim to
         run: tests/run_script_tests.sh
+      - name: Eval runner grading logic
+        run: python3 tests/test_runner_logic.py
 
   quotation-integrity:
     # Every quotation in the adjudication-bar pack is meant to be verbatim from
