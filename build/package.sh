@@ -25,6 +25,9 @@ python3 scripts/check_quote_integrity.py
 echo "==> Checking the bundled validators behave as specified"
 tests/run_script_tests.sh
 
+echo "==> Checking internal links and bundled references resolve"
+python3 scripts/check_links.py
+
 echo "==> Checking the eval runner's grading logic"
 python3 tests/test_runner_logic.py
 
