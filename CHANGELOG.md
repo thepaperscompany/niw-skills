@@ -18,7 +18,7 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ### Claims discipline
 
-**Removed every claim that counsel reviewed or signed off on this repository.** The README previously stated the legal substance had been reviewed by licensed U.S. immigration counsel before release, and the changelog carried a pending attorney sign-off item. Publishing either invites reliance on a review as a warranty of the output. The README now describes how the substance was built (primary sources, named, with the packs published in `knowledge/` for verification) and says nothing about who reviewed it.
+**Removed every statement about professional vetting of this repository.** The README carried a section asserting one, and the changelog carried a pending item promising another. Publishing either invites reliance on it as a warranty of the output. The README now describes how the substance was built (primary sources, named, with the packs published in `knowledge/` for verification) and says nothing about who checked it.
 
 **Removed price-comparison framing.** The README and the evaluate skill both framed the product against the cost of hiring an attorney. This project competes on method and verifiability, not on being cheaper than counsel.
 
