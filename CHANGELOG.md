@@ -16,6 +16,21 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Plugin, 1.0.0, the lifecycle is complete
+
+Five new skills complete the path from first question to filed response. The plugin now covers eight steps, and a user installs once.
+
+- **`niw-evidence-plan`** turns an assessment into documents someone can go and get. It only emits "strengthening" items when an assessment exists to justify them: with a profile alone it emits essential items only and says why, because strengthening presupposes knowing what is weak and inventing that assessment is the failure mode. It asks for what the archetype actually produces, refuses to pad a list with artifacts a field cannot generate, and writes the exhibit manifest the later skills read.
+- **`niw-evidence-finder`** searches U.S. government sources for evidence that the specific endeavor advances a named national priority, tiered endeavor-specific, sub-field and field-level, with an honest sufficiency rating. It stops and says so if it has no search tool rather than answering from memory, and it will not promote a field-level source to improve the rating.
+- **`niw-endeavor-statement`** drafts the long narrative for the petition letter, distinct from the short proposed endeavor chosen during evaluation. It may reference a national priority only through a supplied source, places nothing in quotation marks that was not copied from one, and returns a self-critique naming the claims resting on the thinnest evidence.
+- **`niw-recommendation-letter`** plans before it drafts: each writer gets one point they alone can attest to, independent writers outweigh supervisors and co-authors, and no two letters cover the same ground. Every output is a draft for the named writer to edit and adopt in their own words, never a letter framed as ready to sign.
+- **`niw-petition-letter`** drafts the master letter section by section from the actual manifest, cites inline where each claim is made, keeps Prong 1 about the endeavor and Prong 2 about the person, and validates its own citations before presenting anything.
+
+New knowledge packs: `evidence-gathering.md`, `national-importance-sources.md`, `drafting-discipline.md`, `letter-strategy.md`, `petition-structure.md`.
+
+Every skill ships its own `.skill` file for claude.ai alongside the plugin zip. The always-on cost of all eight together is about 1,900 tokens; each skill's body loads only when it fires, and the drafting skills are around 2,000 tokens each.
+
+
 ### Repository and README rewritten around the actual scope
 
 **Removed the corpus-assembly detail from every public file.** How a pack was built is internal method; what it covers and what it says are public. The adjudication-bar pack, README, methodology doc and changelog now state the corpus (the complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06) and that quotations are verbatim from those decisions, and nothing about the pipeline that produced it. `scripts/check_public_safe.sh` gained a `corpus build method` pattern so this cannot come back.

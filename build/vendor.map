@@ -42,3 +42,34 @@ niw-rfe-response  knowledge/legal-framework.md
 niw-rfe-response  skill-lib/check_manifest.py
 niw-rfe-response  skill-lib/verify_quotes.py
 niw-rfe-response  skill-lib/filing_date_guard.py
+
+niw-evidence-plan  knowledge/evidence-gathering.md
+niw-evidence-plan  knowledge/evidence-tiers.md
+niw-evidence-plan  knowledge/archetype-calibration.md
+niw-evidence-plan  knowledge/policy-manual-substance.md
+niw-evidence-plan  knowledge/current-adjudication-bar.md
+
+niw-evidence-finder  knowledge/national-importance-sources.md
+niw-evidence-finder  knowledge/current-adjudication-bar.md
+niw-evidence-finder  knowledge/policy-manual-substance.md
+
+niw-endeavor-statement  knowledge/drafting-discipline.md
+niw-endeavor-statement  knowledge/national-importance-sources.md
+niw-endeavor-statement  knowledge/policy-manual-substance.md
+niw-endeavor-statement  knowledge/current-adjudication-bar.md
+niw-endeavor-statement  knowledge/legal-framework.md
+
+niw-recommendation-letter  knowledge/letter-strategy.md
+niw-recommendation-letter  knowledge/drafting-discipline.md
+niw-recommendation-letter  knowledge/evidence-tiers.md
+niw-recommendation-letter  knowledge/current-adjudication-bar.md
+niw-recommendation-letter  knowledge/policy-manual-substance.md
+
+niw-petition-letter  knowledge/petition-structure.md
+niw-petition-letter  knowledge/drafting-discipline.md
+niw-petition-letter  knowledge/evidence-tiers.md
+niw-petition-letter  knowledge/filing-date-doctrine.md
+niw-petition-letter  knowledge/policy-manual-substance.md
+niw-petition-letter  knowledge/current-adjudication-bar.md
+niw-petition-letter  knowledge/legal-framework.md
+niw-petition-letter  skill-lib/check_manifest.py

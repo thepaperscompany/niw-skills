@@ -113,25 +113,20 @@ The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/d
 
 Skills are listed in the order you would use them.
 
-### Shipped
+### The eight skills, in the order you would use them
 
-| # | Skill | What it does | Status |
-|---|---|---|---|
-| 1 | [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Decide whether to pursue NIW, and under what proposed endeavor. Orientation for newcomers, endeavor co-design when you do not have one, then a prong-by-prong assessment with a realistic ceiling and dated next steps. | v0.3 |
-| 2 | [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Review an assembled package before filing. Reads the actual exhibits, letters and petition draft, tests each prong against documented evidence only, quotes the passages that overclaim, tracks which exhibits USCIS has seen, and returns a prioritized fix list and a readiness verdict. | v0.1 |
-| 3 | [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response) | Work a Request for Evidence or Notice of Intent to Deny through to a drafted response. Reads the printed deadline, works each contested point against the record as filed, stops for your corrections, then drafts. | v0.1 |
-
-### Planned
-
-These ship into the same plugin, so you install once and future skills arrive with a plugin update. They are listed in the order they fit the process.
-
-| # | Skill | What it will do |
+| # | Skill | What it does |
 |---|---|---|
-| 4 | `niw-evidence-plan` | Turn an evaluation into a concrete gathering plan: what to obtain, from whom, in what form, and in what order, calibrated to whether the record is academic, industry or entrepreneurial. Writes the exhibit manifest the later skills read. |
-| 5 | `niw-evidence-finder` | Search authoritative U.S. government sources for evidence that the specific endeavor advances a named national priority, and rate honestly how strong what it found actually is. |
-| 6 | `niw-endeavor-statement` | Draft the endeavor statement that goes into the petition letter. This is the long narrative document, distinct from the short proposed endeavor chosen during `niw-evaluate`. Every national-priority claim anchored to a source, with a self-critique beside the draft. |
-| 7 | `niw-recommendation-letter` | Strategy and drafting for expert letters. Assigns prongs to recommenders by credential and independence, keeps any two letters from covering the same ground, and writes only what each recommender could plausibly know. |
-| 8 | `niw-petition-letter` | Draft the master petition letter, the document USCIS actually adjudicates. Integrates the endeavor, the prong arguments, the evidence index and the letter strategy, with every claim tied to an exhibit. |
+| 1 | [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Decide whether to pursue NIW, and under what proposed endeavor. Orientation if you are new to it, endeavor co-design if you do not have one, then a prong-by-prong assessment with a realistic ceiling and dated next steps. |
+| 2 | [`niw-evidence-plan`](thepapers-niw/skills/niw-evidence-plan) | Turn that assessment into a list of documents you can actually go and get, calibrated to whether your record is academic, industry or entrepreneurial. Writes the exhibit manifest the later skills read. |
+| 3 | [`niw-evidence-finder`](thepapers-niw/skills/niw-evidence-finder) | Search U.S. government sources for evidence that your specific endeavor advances a named national priority, and rate honestly how strong what it found is. Needs an environment with network access. |
+| 4 | [`niw-endeavor-statement`](thepapers-niw/skills/niw-endeavor-statement) | Draft the endeavor statement for the petition letter. Every national-priority claim anchored to a real source, with a self-critique beside the draft. |
+| 5 | [`niw-recommendation-letter`](thepapers-niw/skills/niw-recommendation-letter) | Decide who writes about what, then draft. Each writer gets one point they alone can attest to, independent writers count for more, and no two letters cover the same ground. |
+| 6 | [`niw-petition-letter`](thepapers-niw/skills/niw-petition-letter) | Draft the master petition letter section by section, with every claim tied to an exhibit that exists in your manifest. |
+| 7 | [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Review the assembled package before filing, as a skeptical adjudicator would. Quotes the sentences that overclaim, tracks which exhibits USCIS has actually seen, returns a prioritized fix list and a readiness verdict. |
+| 8 | [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response) | Work a Request for Evidence or Notice of Intent to Deny through to a drafted response. Reads the printed deadline, works each contested point against the record as filed, stops for your corrections, then drafts. |
+
+Skills 3 through 6 produce documents. Skills 1, 2, 7 and 8 tell you where you stand and what to do. You do not need all eight, and most people will not use them in one sitting.
 
 See [CHANGELOG.md](./CHANGELOG.md) for the full release history.
 
