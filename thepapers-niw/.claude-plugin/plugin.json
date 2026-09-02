@@ -1,12 +1,26 @@
 {
   "name": "thepapers-niw",
-  "description": "U.S. EB-2 National Interest Waiver (NIW) skills for DIY self-petitioners and immigration professionals. Currently includes niw-evaluate (pre-filing case evaluation under the current USCIS adjudication standard, with Dhanasar three-prong analysis, citation discipline, and achievable case ceiling for prospective applicants). Future skills in this plugin will cover endeavor-statement drafting, petition letter drafting, recommendation letters, evidence research, and RFE/NOID response.",
-  "version": "0.2.0",
+  "description": "U.S. EB-2 National Interest Waiver (NIW) skills for DIY self-petitioners and immigration professionals. Includes niw-evaluate: pre-filing case evaluation under the current USCIS adjudication standard, with Dhanasar three-prong analysis, preponderance verdict floors, citation discipline, and an achievable case ceiling for prospective applicants. Legal substance is published in knowledge/ and distilled from the complete public pool of 1,040 AAO non-precedent NIW decisions issued 2025-01 through 2026-06. Future skills will cover endeavor-statement drafting, national-importance evidence research, recommendation letters, petition letter drafting, pre-filing package review, and RFE/NOID response.",
+  "version": "0.3.0",
   "author": {
     "name": "The Papers Company",
     "url": "https://thepapers.co"
   },
   "homepage": "https://github.com/thepaperscompany/niw-skills",
   "repository": "https://github.com/thepaperscompany/niw-skills",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "displayName": "NIW Skills by The Papers Company",
+  "keywords": [
+    "national-interest-waiver",
+    "eb-2",
+    "niw",
+    "uscis",
+    "immigration",
+    "dhanasar",
+    "i-140",
+    "rfe",
+    "green-card",
+    "self-petition",
+    "legal"
+  ]
 }

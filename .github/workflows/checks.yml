@@ -1,0 +1,46 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  public-safety:
+    # This repository is public and its git history is permanent. A private path
+    # or internal module name merged here cannot be taken back by deleting it
+    # later, so this gate runs before anything else.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No tracked file references private infrastructure
+        run: scripts/check_public_safe.sh
+
+  vendored-references:
+    # knowledge/ is the single source of truth. The copies under
+    # skills/*/references/ are generated and must not drift from it.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vendored references match knowledge/
+        run: build/vendor.sh --check
+
+  quotation-integrity:
+    # Every quotation in the adjudication-bar pack is meant to be verbatim from
+    # a source decision. This does not re-verify against USCIS, which needs the
+    # decisions themselves; it catches accidental edits to quoted spans.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Adjudication-bar pack is structurally intact
+        run: |
+          f=knowledge/current-adjudication-bar.md
+          patterns=$(grep -cE '^[0-9]+\. ' "$f")
+          quotes=$(grep -oE '"[^"]{15,}"' "$f" | wc -l | tr -d ' ')
+          cites=$(grep -oE 'In Re: [0-9]+' "$f" | sort -u | wc -l | tr -d ' ')
+          echo "patterns=$patterns quotes=$quotes distinct-cites=$cites"
+          test "$patterns" -eq 21 || { echo "expected 21 numbered patterns"; exit 1; }
+          test "$quotes" -ge 34 || { echo "expected at least 34 quoted spans (single-line occurrences)"; exit 1; }
+          test "$cites" -ge 35 || { echo "expected at least 35 distinct case cites"; exit 1; }
+          grep -q "Selection caveat" "$f" || { echo "sampling-bias caveat missing"; exit 1; }
+          grep -q "never outcome rates" "$f" || { echo "outcome-rate prohibition missing"; exit 1; }

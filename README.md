@@ -9,7 +9,7 @@ Built and maintained by [The Papers Company](https://thepapers.co) — the team 
 ### claude.ai (web) — fastest path
 
 1. Download [`thepapers-niw-evaluate.skill`](dist/thepapers-niw-evaluate.skill) from the [`dist/`](dist/) directory or from [Releases](https://github.com/thepaperscompany/niw-skills/releases).
-2. Open [claude.ai → Settings → Capabilities](https://claude.ai/settings/capabilities), scroll to **Skills**, click **Upload skill**, upload the file.
+2. Open claude.ai, go to **Settings** then **Features**, scroll to **Skills**, click **Upload skill**, and upload the file. Requires a plan with code execution enabled.
 3. Toggle the skill on. Done.
 
 Claude will invoke the skill automatically when you describe an NIW case or ask any NIW-related question.
@@ -128,6 +128,18 @@ Several open-source NIW skill suites exist on GitHub. We respect them. We approa
 
 See [docs/METHODOLOGY.md](./docs/METHODOLOGY.md) for the full reasoning.
 
+## Check our work
+
+Most skill suites assert that they encode expert reasoning. We would rather you verify it.
+
+The legal substance lives in [`knowledge/`](knowledge/) as plain Markdown, and every file states its source and the date it was checked:
+
+- [`current-adjudication-bar.md`](knowledge/current-adjudication-bar.md) is distilled from the **complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06**: 1,040 decisions crawled, 1,036 mechanically classified for outcome and dispositive issue, about 35 read in full. It carries 21 numbered patterns with 35 verbatim quotations, each copied from its source decision and checked against it. Pick any quote and look it up.
+- It also states its own sampling bias in the header. This is a denial-heavy appeal pool: approved petitions and unappealed denials are invisible in it. So it calibrates how closely to scrutinize a record, and is never used to produce approval rates or a probability of approval. A suite that reports base rates from this corpus is reading it wrong.
+- [`policy-alerts.md`](knowledge/policy-alerts.md) tracks the USCIS policy changes that alter how a case should be prepared, including PA-2026-05 (effective 2026-08-05), which restored officers' full discretion to deny without first issuing a Request for Evidence.
+
+Files under `thepapers-niw/skills/*/references/` are generated copies of `knowledge/`, vendored at build time so a standalone `.skill` works on claude.ai where there is no plugin root. `build/vendor.sh --check` verifies they match; `knowledge/MANIFEST.txt` records the checksums.
+
 ## What this is — and is not
 
 **This is:** a structured legal-analytical framework that helps you (or your attorney) understand how a USCIS adjudicator would currently view your case, where the gaps are, and what targeted preparation would change the verdict.
@@ -163,7 +175,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) (coming soon).
 
 ## Legal review
 
-The legal substance of this plugin has been reviewed by licensed U.S. immigration counsel before release. The evaluation logic was authored by The Papers Company and built against the USCIS Policy Manual, *Matter of Dhanasar*, *Matter of Chawathe*, *Matter of Katigbak*, *Flores v. Garland*, and recent AAO non-precedent decisions.
+The legal substance of this plugin has been reviewed by licensed U.S. immigration counsel before release. The evaluation logic was authored by The Papers Company and built against the USCIS Policy Manual, *Matter of Dhanasar*, *Matter of Chawathe*, *Matter of Katigbak*, *Flores v. Garland*, and the complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06.
 
 Outputs are research-grade legal analysis, not legal advice. See [DISCLAIMER.md](./DISCLAIMER.md).
 

@@ -96,7 +96,11 @@ You are acting as a senior NIW attorney preparing a rigorous internal memo for a
 - **Preponderance burden, applied per prong.** Each prong must individually be established by a preponderance of the evidence ("more likely than not"). *Matter of Chawathe*, 25 I&N Dec. at 375–76.
 - **Documented evidence carries the burden.** Inferred and unsupported claims can color shading but cannot carry preponderance alone.
 
-Read [`references/current-adjudication-bar.md`](references/current-adjudication-bar.md) before drafting any analysis. That file encodes the operational standards reflecting how USCIS adjudicators and the AAO are deciding cases today. Missing these patterns is the single biggest reason petitions are dismissed on appeal.
+Read [`references/current-adjudication-bar.md`](references/current-adjudication-bar.md) before drafting any analysis. It is distilled from the complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06: 1,040 decisions, with every quotation checked against its source decision. Missing these patterns is the single biggest reason petitions are dismissed on appeal.
+
+Two disciplines come with that file and are not optional. It is a **denial-heavy appeal pool**, so it calibrates how closely to scrutinize a record and never supplies outcome rates, base rates, or a probability of approval. And its decisions are **calibration, not authority to hand the petitioner**: apply the reasoning, do not cite the case numbers in the memo.
+
+Read [`references/policy-alerts.md`](references/policy-alerts.md) before writing any verdict or filing recommendation. Since PA-2026-05 (effective 2026-08-05), USCIS has full discretion to deny without first issuing a Request for Evidence, so a thin filing can no longer be assumed to draw a curable RFE. This changes the cost of filing early, not the legal test.
 
 ---
 
@@ -319,7 +323,7 @@ Running the full evaluation against the proposed endeavor you selected: *"[endea
 
 ## What to do now
 
-[Short prioritized list of 3–4 actions for the next 30, 60, 90 days. If the recommendation is to wait and prepare before filing, say so directly.]
+[Short prioritized list of 3–4 actions for the next 30, 60, 90 days. If the recommendation is to wait and prepare before filing, say so directly, and say why it matters now: since August 2026 USCIS can deny a petition outright without first sending a Request for Evidence, so filing before the record is ready no longer buys a chance to fix it. State this as a consequence of filing early, never as a prediction about their case.]
 
 ## Disclaimers
 
@@ -407,7 +411,8 @@ Load these on demand when the analysis calls for them:
 - [`references/eb2-baseline.md`](references/eb2-baseline.md) — EB-2 baseline eligibility check doctrine, advanced-degree rules, exceptional-ability criteria, profession-occupation test, common failure modes. **Read when running Step 0.5 (EB-2 baseline check), which runs only on clear contradicting signals.**
 - [`references/legal-framework.md`](references/legal-framework.md) — full citation set, the three Dhanasar prongs in summary, the EB-2 baseline.
 - [`references/policy-manual-substance.md`](references/policy-manual-substance.md) — Policy Manual narrative substance: Prong 1 worked examples (drug-for-pharma, software-engineer-adapting-code, classroom-teaching, technology-for-employer-clients), Prong 2 full evidence categories, Prong 3 factor detail, STEM triad detail, interested-government-agency letters, full entrepreneur evidentiary considerations. **Read when running Steps 4 (Prong 1), 5 (Prong 2), 6 (Prong 3) for narrative depth and analogies.**
-- [`references/current-adjudication-bar.md`](references/current-adjudication-bar.md) — operational standards reflecting how the AAO and service centers are currently deciding cases. **Read before drafting any analysis.**
+- [`references/current-adjudication-bar.md`](references/current-adjudication-bar.md) — how NIW cases are actually decided, distilled from the complete public pool of 1,040 AAO non-precedent decisions issued 2025-01 through 2026-06, with verified verbatim quotations. Calibration only: never outcome rates, and never cited to the petitioner. **Read before drafting any analysis.**
+- [`references/policy-alerts.md`](references/policy-alerts.md) — the USCIS policy alerts that change how a case should be prepared, including PA-2026-05 (full discretion to deny without an RFE, effective 2026-08-05), PA-2025-16 (discretion after eligibility) and PA-2025-03. **Read before writing any verdict or filing recommendation.**
 - [`references/verdict-rubric.md`](references/verdict-rubric.md) — assessment-level definitions, preponderance gating mechanics, ceiling logic.
 - [`references/archetype-calibration.md`](references/archetype-calibration.md) — how evidence expectations differ across academic / industry / founder profiles.
 - [`references/endeavor-proposal.md`](references/endeavor-proposal.md) — doctrine and worked examples for Step 0 (endeavor proposal) and Step 0b (endeavor reframing). **Read when proposing candidate endeavors or narrower restatements.**

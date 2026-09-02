@@ -1,0 +1,18 @@
+# Which knowledge files each skill carries.
+#
+# knowledge/ is the only place a human edits legal substance. This map declares
+# which of those files get copied into each skill's references/ directory at
+# build time, so a standalone .skill upload is self-contained on claude.ai,
+# where a plugin root does not exist.
+#
+# Format: <skill-name> <knowledge-file>
+
+niw-evaluate  current-adjudication-bar.md
+niw-evaluate  policy-alerts.md
+niw-evaluate  legal-framework.md
+niw-evaluate  policy-manual-substance.md
+niw-evaluate  verdict-rubric.md
+niw-evaluate  archetype-calibration.md
+niw-evaluate  endeavor-proposal.md
+niw-evaluate  eb2-baseline.md
+niw-evaluate  orientation.md

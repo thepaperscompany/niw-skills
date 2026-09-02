@@ -16,6 +16,28 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Plugin — 0.3.0 — the full AAO corpus, published
+
+**`knowledge/` is now the single source of truth for legal substance.** All reference files moved there. Files under `thepapers-niw/skills/*/references/` are generated copies, vendored at build time by `build/vendor.sh` so a standalone `.skill` remains self-contained on claude.ai, where there is no plugin root to resolve a shared path against. `build/vendor.sh --check` fails on drift, and `knowledge/MANIFEST.txt` records a sha256 for every vendored file.
+
+**`knowledge/current-adjudication-bar.md` replaces the previous adjudication-bar file.** The old version was distilled from three AAO decisions. This one is distilled from the **complete public pool of AAO non-precedent NIW (EB-2/B5) decisions issued 2025-01 through 2026-06**: 1,040 decisions crawled and downloaded, 1,036 mechanically classified for outcome and dispositive issue, the highest-substance analysis sections plus about 35 decisions read in full. It carries 21 numbered patterns across cross-cutting posture, EB-2 threshold, all three prongs, what prevails in sustained appeals, and calibration cautions against the opposite errors.
+
+Two disciplines ship with it and are stated in the file itself:
+
+- **Verified quotations.** All 35 quotations were copied from their source decisions and checked against them during distillation. None was generated from memory.
+- **Stated sampling bias.** This is a denial-heavy appeal pool: petitions approved at first instance and denials never appealed are invisible in it. The file calibrates how closely to scrutinize a record and is never a source of outcome rates, base rates, or a probability of approval. It also records adjudicator errors the AAO *reverses*, so the model does not imitate service-center overreach.
+
+**Added `knowledge/policy-alerts.md`, including PA-2026-05.** Effective 2026-08-05, USCIS restored officers' full discretion to deny a benefit request without first issuing an RFE or NOID, citing 8 CFR 103.2(b)(8)(ii). A thin filing can no longer be assumed to draw a curable Request for Evidence. `SKILL.md` now reads this file before writing any verdict or filing recommendation, and the "What to do now" section states the consequence of filing early in plain terms. This changes the cost of filing short, not the legal test, and the skill is instructed never to present it as a prediction. Also covers PA-2025-16 (discretion after eligibility) and PA-2025-03.
+
+**Added a table of contents to every reference file over 100 lines,** so a partial read still shows the full scope of what the file contains.
+
+**Added `scripts/check_public_safe.sh`.** This repository is public and its history is permanent. The script fails if any tracked file references private infrastructure: absolute home paths, git worktree ids, private repo names, internal module names, or internal tooling commands. `build/package.sh` runs it, along with `claude plugin validate --strict`, before packing any artifact, and re-checks the built archives afterward.
+
+**Rewrote `docs/METHODOLOGY.md` §2** from "curated AAO, not bulk" to describe the complete-pool method, what we refuse to distill (correlates of approval), and the three distortions corrected rather than inherited.
+
+**README gains a "Check our work" section** pointing at `knowledge/` so a reader can look up any quotation rather than take the claim on trust. The claude.ai upload path is corrected to Settings then Features.
+
+
 ### Plugin — 0.2.1 — license switch
 
 **License changed from MIT to Apache License 2.0** ([SPDX: `Apache-2.0`](https://spdx.org/licenses/Apache-2.0.html)). Chosen over MIT for three reasons specific to this project:

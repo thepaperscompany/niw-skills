@@ -7,7 +7,7 @@ If you disagree with any of these choices, open an issue. They have been argued 
 ## Table of contents
 
 1. [Preponderance of the evidence, not adversarial stress-testing](#1-preponderance-not-adversarial)
-2. [Curated AAO authority, not bulk AAO retrieval](#2-curated-aao-not-bulk)
+2. [The complete pool, read for reasoning, not for outcomes](#2-the-complete-pool-read-for-reasoning-not-for-outcomes)
 3. [Field importance is not endeavor importance — the single most load-bearing rule](#3-field-vs-endeavor)
 4. [Verdict floor: no "Strong" without documented evidence](#4-verdict-floor)
 5. [Achievable case ceiling for prospective applicants](#5-achievable-ceiling)
@@ -30,17 +30,23 @@ If you disagree with any of these choices, open an issue. They have been argued 
 
 ---
 
-## 2. Curated AAO, not bulk
+## 2. The complete pool, read for reasoning, not for outcomes
 
-**The rule we apply.** Our reference corpus is a hand-tagged set of substantively dispositive AAO decisions — cases that reached merits analysis and turned on a teachable failure mode. The skill does *not* perform unconstrained AAO retrieval at request time.
+**What the corpus is.** The complete public pool of AAO non-precedent NIW (EB-2/B5) decisions issued 2025-01 through 2026-06: 1,040 decisions crawled and downloaded, 1,036 mechanically classified for outcome and dispositive issue, with the highest-substance analysis sections and about 35 decisions read in full. The distillation is published in [`knowledge/current-adjudication-bar.md`](../knowledge/current-adjudication-bar.md) so you can check it rather than take our word for it.
 
-**Why not bulk AAO ingestion or runtime keyword search.** Three reasons.
+**Every quotation is verified.** Each quote in that file was copied from its source decision and checked against it during distillation. None was generated from memory. This matters because the Stanford RegLab study found leading commercial legal-research tools hallucinate 17 to 33 percent of the time even with retrieval and grounding. Verification at authoring time, in a file you can read, is a stronger guarantee than a promise about runtime behavior.
 
-1. **Selection bias.** The AAO corpus on uscis.gov consists almost entirely of cases that were dismissed at the service-center level *and* appealed. Most NIW petitions are approved at first instance and never appear in this corpus. Training or grounding a model on bulk AAO data teaches it a wildly skewed prior — "most NIW cases get dismissed" — which is empirically false of NIW filings overall.
-2. **Procedural-vs-substantive noise.** A large fraction of AAO dismissals never reach all three prongs. The data-science decision the maintainers studied closely (*In Re: 37289559*, AAO Mar. 7, 2025) reserved Prongs 2 and 3 under *INS v. Bagamasbad*, 429 U.S. 24, 25 (1976) and never reached merits on them. Including such cases in a bulk corpus teaches the model to mimic procedural dismissal patterns rather than substantive merits reasoning.
-3. **Appellate posture.** AAO de novo review under *Matter of Christo's, Inc.*, 26 I&N Dec. 537, 537 n.2 (AAO 2015) is still appellate in form — it focuses on whether the Director's decision can be sustained given the record at filing. That is a different question from "could this petitioner qualify if filing today with a developed record." Grounding our skill on appellate reasoning systematically distorts first-instance assessment.
+**What we distill, and what we refuse to.** We read the decisions to reconstruct how an adjudicator reasons: which arguments fail, why they fail, what the AAO says when it sustains an appeal, and which adjudicator errors the AAO reverses. We do not mine them for correlates of approval. The distinction is not cosmetic. It is why the file can record that Prong 3 is usually reserved once an earlier element fails, and that the pool contains no decision denying an otherwise-eligible NIW on separate negative discretionary factors, so the model must never invent adverse discretionary findings. A model trained to match outcomes has no way to represent either statement.
 
-**What curated looks like.** Each AAO decision in our corpus is tagged with: (a) which prong was dispositive, (b) what specific substantive failure mode the decision teaches, (c) whether merits analysis on other prongs was reached. The model uses these decisions to illustrate failure modes, not to ground verdicts.
+**The selection bias is stated, not hidden.** This is a denial-heavy appeal pool. Petitions approved at first instance and denials never appealed are both invisible in it. So the distillation calibrates *how closely to scrutinize a record* and is never used to produce outcome rates, base rates, or a probability of approval. Reading a skewed pool as a prior would teach the model that most NIW petitions fail, which is not true of NIW filings overall.
+
+Three further distortions we correct for rather than inherit:
+
+1. **Procedural versus substantive.** A large share of dismissals never reach all three prongs, reserving the rest under *INS v. Bagamasbad*, 429 U.S. 24, 25 (1976). We distill substantive failure modes and skip pure procedural dismissals, which carry little reasoning signal.
+2. **Appellate posture.** AAO de novo review under *Matter of Christo's, Inc.*, 26 I&N Dec. 537, 537 n.2 (AAO 2015) asks whether the Director's decision can be sustained on the record as filed. That is a different question from whether a petitioner could qualify by filing later with a developed record, which is what most users are actually asking.
+3. **Adjudicator overreach.** The pool also shows the AAO *reversing* service-center errors, such as blanket per-role attenuation findings and importing EB-1A's "contributions of major significance" into an NIW case. Distilling only the dismissals would teach the model to imitate those errors, so the corrections are recorded alongside the failures.
+
+**Calibration, not citation.** The decisions shape how closely the model scrutinizes a record. They are not authority to hand the petitioner, and the skill does not cite these case numbers in user-facing output. It also performs no unconstrained AAO retrieval at request time: the corpus is a fixed, versioned file, refreshed deliberately, not searched live.
 
 ---
 
