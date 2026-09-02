@@ -1,6 +1,6 @@
 # NIW Skills: by The Papers Company
 
-> Open-source skills covering the U.S. EB-2 National Interest Waiver (NIW) from first question to filed response: deciding whether to pursue it, choosing what to file under, reviewing an assembled package before filing, and answering a Request for Evidence. Prepared under the current USCIS adjudication standard. Distributed as a [Claude Code plugin](https://code.claude.com/docs/en/plugins) (`thepapers-niw`) and as standalone skill files for claude.ai.
+> Open-source skills for the U.S. EB-2 National Interest Waiver, covering the whole route: working out whether to pursue it and under what proposed endeavor, gathering the evidence, **drafting the petition letter and the supporting documents**, reviewing the package before you file, and answering a Request for Evidence. Written to the current USCIS adjudication standard. Distributed as a [Claude Code plugin](https://code.claude.com/docs/en/plugins) (`thepapers-niw`) and as standalone skill files for claude.ai.
 
 Built and maintained by [The Papers Company](https://thepapers.co), the team behind [Immigration Papers](https://thepapers.co/immigration), a self-petitioner-first NIW DIY platform.
 
@@ -69,11 +69,27 @@ You are deciding whether to spend the filing fee.
 
 `niw-evaluate` produces a structured memo: each of the three prongs analyzed on the evidence you actually have, what an adjudicator will push back on, where the case stands today, what it could become and in how long, and what to do in the next 30, 60 and 90 days.
 
-### "I have drafted a petition and assembled evidence. Is it ready?"
+### "I know what I am filing. Now I have to actually write it."
+
+This is the work. The petition letter is the document USCIS reads and decides on, and the evidence only matters through what the letter argues from it.
+
+> "I have my endeavor and my evidence. Help me write the petition letter."
+
+`niw-petition-letter` drafts it section by section: the classification, the endeavor, and each of the three questions USCIS asks, with every claim pointing at a specific piece of your evidence. It refuses to cite evidence you do not have, keeps the argument about your endeavor separate from the argument about you, and tells you honestly which passage is weakest and what would fix it.
+
+Three skills feed it, and you can use them in any order:
+
+- `niw-endeavor-statement` writes the long description of what you will do in the United States and why it matters nationally, anchored to real government sources rather than to claims about your field.
+- `niw-recommendation-letter` works out who should write for you and what each person should cover, so no two letters say the same thing, then drafts each one within what that person could genuinely know.
+- `niw-evidence-finder` looks for government sources showing your specific work advances a named national priority, and tells you plainly when what it found is only general background.
+
+Everything these produce is a draft for you to read, change and own. None of it is ready to send as written.
+
+### "I have written it. Is it ready to file?"
 
 This is the decision that costs the most to get wrong. Since a 2026 policy change, USCIS can refuse a petition outright without first asking for more evidence, so filing early no longer buys a second chance.
 
-> "My package is in ./niw-case. Is it ready to file?"
+> "Here is my petition draft and my evidence. Is this ready to file?"
 
 `niw-package-review` reads your actual exhibits, letters and petition draft the way a skeptical adjudicator would. It tests each prong against the evidence that is genuinely documented, quotes the specific sentences in your petition that claim more than your record supports, tracks which exhibits USCIS has actually seen, and gives you a prioritized fix list.
 
@@ -81,13 +97,13 @@ This is the decision that costs the most to get wrong. Since a 2026 policy chang
 
 You have a deadline you cannot extend and one submission.
 
-> "I got an RFE. It is in ./niw-case/notice/rfe.md. What is it asking and how do I respond?"
+> "I got a Request for Evidence. Here it is. What is it asking for, and how do I respond?"
 
 `niw-rfe-response` reads the deadline printed on your notice rather than calculating one, works through each contested point against the record you actually filed, stops so you can correct anything it got wrong about your own file, and then drafts. It holds two rules that decide these responses and that are easy to get backwards: your eligibility is judged on the facts as they stood the day you filed, and you cannot rewrite your proposed endeavor to fit the notice, even when the notice asks for a more detailed description of it.
 
 ## Who this is for
 
-**North star:** the user's eventual goal is a successful U.S. green card. The plugin exists to help users (1) decide whether NIW is the right pathway given their life and career, (2) build a maximally strong case toward filing, (3) get through filing successfully, and (4) handle post-filing turbulence if any. Anything that does not serve those four is overhead.
+Your goal is a green card. These skills exist to help you decide whether this route fits your life and career, build the strongest case you can before filing, write the petition itself, and handle whatever USCIS sends back.
 
 ### Primary audience: self-petitioners doing NIW the DIY way
 
@@ -109,7 +125,7 @@ EB-2 NIW, National Interest Waiver, DIY immigration, self-petition green card, M
 
 ## What's in this plugin
 
-The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) with a [`.claude-plugin/plugin.json`](thepapers-niw/.claude-plugin/plugin.json) manifest and skills under [`thepapers-niw/skills/`](thepapers-niw/skills/). Inside the plugin, skills are namespaced, so `niw-evaluate` is invoked as `/thepapers-niw:niw-evaluate`.
+Eight skills. You install once and get all of them, and future updates arrive together.
 
 Skills are listed in the order you would use them.
 
@@ -118,15 +134,15 @@ Skills are listed in the order you would use them.
 | # | Skill | What it does |
 |---|---|---|
 | 1 | [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Decide whether to pursue NIW, and under what proposed endeavor. Orientation if you are new to it, endeavor co-design if you do not have one, then a prong-by-prong assessment with a realistic ceiling and dated next steps. |
-| 2 | [`niw-evidence-plan`](thepapers-niw/skills/niw-evidence-plan) | Turn that assessment into a list of documents you can actually go and get, calibrated to whether your record is academic, industry or entrepreneurial. Writes the exhibit manifest the later skills read. |
+| 2 | [`niw-evidence-plan`](thepapers-niw/skills/niw-evidence-plan) | Turn that assessment into a list of documents you can actually go and get, calibrated to whether your record is academic, industry or entrepreneurial. Leaves you with an organized list of your evidence, including which items USCIS has already seen. |
 | 3 | [`niw-evidence-finder`](thepapers-niw/skills/niw-evidence-finder) | Search U.S. government sources for evidence that your specific endeavor advances a named national priority, and rate honestly how strong what it found is. Needs an environment with network access. |
 | 4 | [`niw-endeavor-statement`](thepapers-niw/skills/niw-endeavor-statement) | Draft the endeavor statement for the petition letter. Every national-priority claim anchored to a real source, with a self-critique beside the draft. |
 | 5 | [`niw-recommendation-letter`](thepapers-niw/skills/niw-recommendation-letter) | Decide who writes about what, then draft. Each writer gets one point they alone can attest to, independent writers count for more, and no two letters cover the same ground. |
-| 6 | [`niw-petition-letter`](thepapers-niw/skills/niw-petition-letter) | Draft the master petition letter section by section, with every claim tied to an exhibit that exists in your manifest. |
+| 6 | [`niw-petition-letter`](thepapers-niw/skills/niw-petition-letter) | Draft the petition letter section by section, with every claim pointing at a specific piece of evidence you actually have. It will not cite evidence you do not have. |
 | 7 | [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Review the assembled package before filing, as a skeptical adjudicator would. Quotes the sentences that overclaim, tracks which exhibits USCIS has actually seen, returns a prioritized fix list and a readiness verdict. |
 | 8 | [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response) | Work a Request for Evidence or Notice of Intent to Deny through to a drafted response. Reads the printed deadline, works each contested point against the record as filed, stops for your corrections, then drafts. |
 
-Skills 3 through 6 produce documents. Skills 1, 2, 7 and 8 tell you where you stand and what to do. You do not need all eight, and most people will not use them in one sitting.
+Four of these write documents for you (3 through 6). The other four tell you where you stand and what to do next. You will not need all eight, and nobody uses them in one sitting.
 
 See [CHANGELOG.md](./CHANGELOG.md) for the full release history.
 
@@ -159,7 +175,7 @@ The legal substance lives in [`knowledge/`](knowledge/) as plain Markdown, and e
 - It also states its own sampling bias in the header. This is a denial-heavy appeal pool: approved petitions and unappealed denials are invisible in it. So it calibrates how closely to scrutinize a record, and is never used to produce approval rates or a probability of approval. A suite that reports base rates from this corpus is reading it wrong.
 - [`policy-alerts.md`](knowledge/policy-alerts.md) tracks the USCIS policy changes that alter how a case should be prepared, including PA-2026-05 (effective 2026-08-05), which restored officers' full discretion to deny without first issuing a Request for Evidence.
 
-Files under `thepapers-niw/skills/*/references/` are generated copies of `knowledge/`, vendored at build time so a standalone `.skill` works on claude.ai where there is no plugin root. `build/vendor.sh --check` verifies they match; `knowledge/MANIFEST.txt` records the checksums.
+Each skill carries its own copy of the packs it needs, so a skill you upload to claude.ai works on its own. The copies are generated from `knowledge/`, and a check in our build fails if any of them drifts from the original.
 
 ## What this is: and is not
 
@@ -181,6 +197,10 @@ This plugin is the open foundation behind [thepapers.co/immigration](https://the
 - Tools and resources to help you engage your own licensed immigration counsel for final review and filing (the user selects their own attorney; The Papers Company is not a law firm and does not provide legal advice or operate a lawyer referral service)
 
 The plugin and the hosted product use the same evaluation prompts, kept in sync per the policy in [CHANGELOG.md](./CHANGELOG.md).
+
+## Repository layout
+
+For contributors. The plugin lives at `thepapers-niw/`, skills under `thepapers-niw/skills/`, and the legal packs in [`knowledge/`](knowledge/). Inside the plugin, skills are namespaced, so `niw-evaluate` is invoked as `/thepapers-niw:niw-evaluate`.
 
 ## Contributing
 
