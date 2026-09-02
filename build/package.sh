@@ -16,6 +16,9 @@ build/vendor.sh
 echo "==> Checking no tracked file references private infrastructure"
 scripts/check_public_safe.sh
 
+echo "==> Checking for unverifiable or prohibited claims"
+scripts/check_claims.sh
+
 echo "==> Checking the pack's verbatim quotations are unchanged"
 python3 scripts/check_quote_integrity.py
 

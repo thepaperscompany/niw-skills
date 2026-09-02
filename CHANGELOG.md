@@ -16,6 +16,17 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Claims discipline
+
+**Removed every claim that counsel reviewed or signed off on this repository.** The README previously stated the legal substance had been reviewed by licensed U.S. immigration counsel before release, and the changelog carried a pending attorney sign-off item. Publishing either invites reliance on a review as a warranty of the output. The README now describes how the substance was built (primary sources, named, with the packs published in `knowledge/` for verification) and says nothing about who reviewed it.
+
+**Removed price-comparison framing.** The README and the evaluate skill both framed the product against the cost of hiring an attorney. This project competes on method and verifiability, not on being cheaper than counsel.
+
+**Added `scripts/check_claims.sh`**, which fails on four categories in any tracked public file: a claim of counsel review or sign-off, a lawyer-quality or attorney-grade claim about output, a price comparison against hiring an attorney, and any guarantee of approval. It understands negation, so "is not guaranteed approval" and a grader that lists a forbidden phrase do not trip it. Runs in CI and in `build/package.sh`.
+
+Telling a user to consult a licensed immigration attorney of their own choosing is not a claim, and remains throughout: in `DISCLAIMER.md`, `NOTICE`, and the mandatory disclaimer block every skill emits. Removing that guidance would create the exposure the disclaimers exist to prevent.
+
+
 ### Evals migrated to the `claude plugin eval` format, with a runner that works today
 
 **Cases now live at `thepapers-niw/evals/`** in the format `claude plugin eval` expects: `prompt.md` with frontmatter, `graders/*.md` typed by frontmatter (`regex`, `llm`, `tool_used`), and `workspace/` holding each case's input files. That harness is early access, so `tests/run_evals.py` runs the same cases now and applies the same with-plugin / without-plugin ablation. Cases port unchanged when the official harness is available.
@@ -141,6 +152,5 @@ Initial preview release.
 - **Restructured the skill around a 5-stage agentic conversation pattern** (Stage 1 orient and intake → Stage 2 co-design the endeavor → Stage 3 confirm → Stage 4 full evaluation → Stage 5 follow-ups). Replaced the previous "Shape A / Shape B" output abstraction, which leaked engineering taxonomy ("entry state," "Step 0b," "candidate endeavor," "anchor facts," "endeavor specificity check," "preponderance gate") into user-facing prose. The skill now reads like a guided conversation with a senior immigration paralegal, matching the hosted product flow at thepapers.co/immigration.
 - **Locked down voice discipline.** Title for evaluation memos is always *"Your NIW evaluation"*; orientation memos use a plain-English orientation title. Internal taxonomy is forbidden on the page. Section headings name the substance, not the process. No idioms, no engineering metaphors, no invented probabilities of approval. Verified across iteration-3 outputs (cold-start orientation, partial-orient+options, Stage 4 direct evaluation, Stage 3→4 continuation).
 - Initial eval set: 6 fixtures covering academic/STEM, industry/applied, founder/entrepreneur, the no-endeavor entry path, the orientation-needed entry path, and the EB-2-baseline-fail entry path. Iteration-1 produced quantitative benchmark (+55pp pass rate over baseline). Iteration-2 verified voice fix on 3 evals. Iteration-3 verified agentic pattern on 4 evals (including a new Stage 3→4 continuation fixture).
-- Pending: licensed-attorney sign-off (target: v1.0).
 - Pending: factoring `thepapers-niw-propose-endeavors` out as its own callable skill (target: v0.2). For v0.1 the proposal flow is integrated into `thepapers-niw-evaluate`.
 - Pending: `thepapers-niw-endeavor-statement` skill for drafting the longer narrative document (target: v0.3).

@@ -16,6 +16,16 @@ jobs:
       - name: No tracked file references private infrastructure
         run: scripts/check_public_safe.sh
 
+  claims-discipline:
+    # This project does not claim a counsel review of itself, a quality tier
+    # against licensed professionals, a price advantage, or an outcome.
+    # Adjudication is discretionary and these claims are unverifiable.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No unverifiable or prohibited claims
+        run: scripts/check_claims.sh
+
   vendored-references:
     # knowledge/ is the single source of truth. The copies under
     # skills/*/references/ are generated and must not drift from it.

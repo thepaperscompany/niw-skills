@@ -67,7 +67,7 @@ The skill produces a multi-year decision-support roadmap with revisit milestones
 
 ### Primary audience: self-petitioners doing NIW the DIY way
 
-If you are filing your own EB-2 National Interest Waiver petition without paying $5,000–$10,000 to an immigration attorney upfront, this is built for you. The thesis: most of the work of preparing an NIW case is standardized and rule-driven (Dhanasar three-prong analysis, evidence categorization, endeavor specificity, preponderance burden), and a sufficiently rigorous AI tool can do the heavy lifting so you only pay a lawyer for the parts that genuinely need judgment.
+If you are preparing your own EB-2 National Interest Waiver petition, this is built for you. The thesis: much of the work of preparing an NIW case is standardized and rule-driven (Dhanasar three-prong analysis, evidence categorization, endeavor specificity, the preponderance burden), and a sufficiently rigorous tool can do that part well, so the judgment calls are where a licensed attorney's time is worth most.
 
 Three sub-cohorts within DIY:
 
@@ -174,11 +174,13 @@ What we will not accept: marketing copy, approved-case lists used as base rates,
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) (coming soon).
 
-## Legal review
+## How the legal substance was built
 
-The legal substance of this plugin has been reviewed by licensed U.S. immigration counsel before release. The evaluation logic was authored by The Papers Company and built against the USCIS Policy Manual, *Matter of Dhanasar*, *Matter of Chawathe*, *Matter of Katigbak*, *Flores v. Garland*, and the complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06.
+The evaluation logic was authored by The Papers Company against primary sources: the USCIS Policy Manual, *Matter of Dhanasar*, *Matter of Chawathe*, *Matter of Katigbak*, *Flores v. Garland*, and the complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06.
 
-Outputs are research-grade legal analysis, not legal advice. See [DISCLAIMER.md](./DISCLAIMER.md).
+Every legal pack ships in [`knowledge/`](knowledge/) with its source and the date it was checked, so you can verify any claim rather than take ours. See ["Check our work"](#check-our-work) above and [docs/METHODOLOGY.md](./docs/METHODOLOGY.md).
+
+Outputs are research-grade legal analysis, not legal advice, and using this plugin does not create an attorney-client relationship. Have a licensed U.S. immigration attorney of your own choosing review your case before filing. See [DISCLAIMER.md](./DISCLAIMER.md).
 
 ## License
 
