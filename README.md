@@ -8,7 +8,7 @@ Built and maintained by [The Papers Company](https://thepapers.co), the team beh
 
 ### claude.ai (web): fastest path
 
-1. Download the skill you want from the [`dist/`](dist/) directory or from [Releases](https://github.com/thepaperscompany/niw-skills/releases). Each skill ships its own file: [`thepapers-niw-evaluate.skill`](dist/thepapers-niw-evaluate.skill) to decide whether to pursue NIW, [`thepapers-niw-package-review.skill`](dist/thepapers-niw-package-review.skill) to review an assembled package before filing.
+1. Download the skill you want from the [`dist/`](dist/) directory or from [Releases](https://github.com/thepaperscompany/niw-skills/releases). Each skill ships its own file: [`thepapers-niw-evaluate.skill`](dist/thepapers-niw-evaluate.skill) to decide whether to pursue NIW, [`thepapers-niw-package-review.skill`](dist/thepapers-niw-package-review.skill) to review an assembled package before filing, [`thepapers-niw-rfe-response.skill`](dist/thepapers-niw-rfe-response.skill) to work an RFE or NOID.
 2. Open claude.ai, go to **Settings** then **Features**, scroll to **Skills**, click **Upload skill**, and upload the file. Requires a plan with code execution enabled.
 3. Toggle the skill on. Done.
 
@@ -93,6 +93,7 @@ The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/d
 |---|---|---|
 | [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Honest pre-filing legal assessment of an NIW case under preponderance of the evidence: prong-by-prong analysis, what an adjudicator will challenge, and an achievable case ceiling for prospective applicants who are not yet filing-ready. Includes guided endeavor co-design when the user does not arrive with one. Handles all three audience cohorts including long-horizon explorers. | v0.3 |
 | [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Adversarial review of an **assembled** package before filing. Reads the actual exhibits, letters and petition draft; tests each prong against preponderance on documented evidence only; quotes the specific petition passages that overclaim; returns a prioritized fix list and a readiness verdict. Ships three validators that make the discipline mechanical: exhibit citations must resolve to the manifest, petition excerpts must be verbatim, and after filing nothing may rest on a post-filing fact. | v0.1 |
+| [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response) | Works a Request for Evidence or Notice of Intent to Deny from the printed deadline through a drafted response. Crosswalks each contested issue against the record as actually filed, stops for you to correct what it found, then drafts. Holds the rules that decide these responses: eligibility is fixed at the filing date, and the endeavor may not be re-scoped to fit the notice even when the notice asks for a more detailed description. | v0.1 |
 
 ### Planned next
 
@@ -104,7 +105,6 @@ These ship into the same plugin so the user installs once and gets the suite, wi
 | `niw-evidence-finder` | Search authoritative U.S. government sources (federal R&D priority memos, Executive Orders, OSTP priority documents, congressional testimony, agency program announcements, the National Critical and Emerging Technologies List) for endeavor-specific national-importance evidence. Used standalone and called internally by the endeavor-statement and petition-letter skills. | v0.4 (planned) |
 | `niw-recommendation-letter` | Strategy and drafting for expert recommendation letters. Assigns prongs to recommenders by credential and independence; ensures no two letters overlap; produces drafts that name the petitioner's specific contributions. | v0.5 (planned) |
 | `niw-petition-letter` | Draft the **master petition letter**: the central document USCIS adjudicates. Integrates the proposed endeavor, the endeavor statement, prong-by-prong argumentation, the evidence index, and the recommendation-letter strategy into a single structured petition letter with full citation discipline. | v0.6 (planned) |
-| `niw-rfe-response` | Diagnose a USCIS Request for Evidence or Notice of Intent to Deny, crosswalk each issue against the record as filed, and draft a point-by-point response. Enforces the rules that make a response survivable: eligibility is fixed at the filing date, the proposed endeavor may not be re-scoped to fit the notice, and the deadline is read from the notice rather than computed. | v0.5 (planned) |
 
 The roadmap is sequenced so each skill builds on the previous: evaluate establishes the framing, endeavor-statement and evidence-finder produce inputs, recommendation-letter rounds out the human-attestation layer, petition-letter is the master document, and RFE-analyzer handles post-filing turbulence. The full suite covers the customer journey from "what is NIW?" through to approval.
 

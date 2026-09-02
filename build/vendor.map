@@ -31,3 +31,14 @@ niw-package-review  knowledge/legal-framework.md
 niw-package-review  skill-lib/check_manifest.py
 niw-package-review  skill-lib/verify_quotes.py
 niw-package-review  skill-lib/filing_date_guard.py
+
+niw-rfe-response  knowledge/filing-date-doctrine.md
+niw-rfe-response  knowledge/notice-mechanics.md
+niw-rfe-response  knowledge/evidence-tiers.md
+niw-rfe-response  knowledge/current-adjudication-bar.md
+niw-rfe-response  knowledge/policy-alerts.md
+niw-rfe-response  knowledge/policy-manual-substance.md
+niw-rfe-response  knowledge/legal-framework.md
+niw-rfe-response  skill-lib/check_manifest.py
+niw-rfe-response  skill-lib/verify_quotes.py
+niw-rfe-response  skill-lib/filing_date_guard.py

@@ -16,6 +16,25 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Plugin, 0.5.0, `niw-rfe-response`
+
+**New skill: [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response).** Works a Request for Evidence or Notice of Intent to Deny from the notice in hand through a drafted response, in stages, with a deliberate stop in the middle.
+
+The design property that matters is the stop. Each contested issue gets its own focused read of the filed record, written to its own file, and the petitioner corrects those readings **before** any argument is decided or drafted. They hold the filed package and the skill may not. A response built on a wrong reading of the record wastes the one submission the petitioner gets.
+
+What it holds that a general-purpose response framework does not:
+
+- **The deadline is read, never computed.** An officer may set a period shorter than the maximum, so a computed date can fall after the real one, and the deadline cannot be extended. Where no date is printed, it says so instead of guessing.
+- **Eligibility is fixed at the filing date.** Refreshed citation counts, papers published since filing, a promotion and new funding are all refused as ways to establish eligibility, with filing-date-scoped alternatives offered instead.
+- **The endeavor is locked by the petition as filed**, including when the notice asks for a more detailed description of it. That request asks for detail and evidence about the endeavor already described.
+- **Conceded elements are left alone.** Notices routinely resolve elements favorably while contesting others; arguing a conceded point spends the adjudicator's attention and invites reconsideration.
+- **Evidence tiers are labelled honestly** under 8 CFR 103.2(b)(2), and gaps name who holds the document and what to do if that source is unavailable.
+
+New knowledge pack `notice-mechanics.md` covers the deadline discipline, service method, what to transcribe character for character, the RFE and NOID distinction, and the one-submission rule under 8 CFR 103.2(b)(11).
+
+**Measured against a baseline with no plugin** on `rfe-endeavor-detail-trap`, a notice asking for "a detailed description of the proposed endeavor" on a filed petition: 100% with the plugin, 70% without. The baseline advised the petitioner to "sharpen the endeavor statement" and to "rewrite `endeavor.md` from a field description into a specific endeavor." That is the material change the rule exists to prevent, made in response to the request most likely to provoke it.
+
+
 ### Claims discipline
 
 **Removed every statement about professional vetting of this repository.** The README carried a section asserting one, and the changelog carried a pending item promising another. Publishing either invites reliance on it as a warranty of the output. The README now describes how the substance was built (primary sources, named, with the packs published in `knowledge/` for verification) and says nothing about who checked it.

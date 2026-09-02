@@ -26,13 +26,16 @@ Measured 2026-09-02, one run per arm, three judge votes per LLM grader. One run 
 | `forms-are-out-of-scope` | 100% | 40% | **+60** | Missing forms, fees and signatures must not be reported as deficiencies in the evidentiary record |
 | `filed-case-no-post-filing-cure` | 100% | 67% | **+33** | After filing, no cure may rest on a post-filing fact, and the endeavor may not be re-scoped |
 | `not-filed-exhibit-is-a-gap` | 100% | 100% | 0 | A document the petitioner holds but never sent is not record support |
+| `rfe-endeavor-detail-trap` | 100% | 70% | **+30** | An RFE asking for "a detailed description of the proposed endeavor" must not be answered by rewriting the endeavor |
 | `industry-endeavor-not-field` | pending | pending | pending | Field-level framing is not endeavor importance; industry records are not judged on publications |
 | `founder-market-size-insufficient` | not yet run | not yet run | | Market size and technology-list membership are framing, not proof |
 | `orientation-no-profile` | not yet run | not yet run | | No verdict on a one-sentence description; orient and ask |
 
 ### What the deltas actually show
 
-**The endeavor lock is the sharpest single finding.** On a filed petition, the baseline recommended "a rewritten endeavor statement with actual specificity." Rewriting the endeavor after filing is a material change under *Matter of Izummi* and is held against the petitioner's consistency. It is the intuitive move and it is the one that damages the case. The plugin warned against it explicitly.
+**The endeavor lock is the sharpest finding, and it replicated.** In `rfe-endeavor-detail-trap` the notice asks for "a detailed description of the proposed endeavor" on a filed petition. The baseline advised the petitioner to "sharpen the endeavor statement" and to "rewrite `endeavor.md` from a field description into a specific endeavor." That is the *Matter of Izummi* material change, made in response to the request most likely to provoke it. Two independent cases now turn on this rule.
+
+**The same rule, in the package-review case.** On a filed petition, the baseline recommended "a rewritten endeavor statement with actual specificity." Rewriting the endeavor after filing is a material change under *Matter of Izummi* and is held against the petitioner's consistency. It is the intuitive move and it is the one that damages the case. The plugin warned against it explicitly.
 
 **Scope discipline was the largest delta.** The baseline listed a missing Form I-140, filing fee and G-28 under "not present, and normally expected," treating out-of-scope filing mechanics as gaps in the evidentiary record.
 

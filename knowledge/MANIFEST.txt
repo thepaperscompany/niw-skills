@@ -21,3 +21,13 @@ fdf4bb74f14d32fd0ad2a8747a9efefb45a37d5560672bfe068ff5c5a11b97fa  knowledge/lega
 ce7fade99a68b115b5a83f70aa0425b235b6842d3a0c9795d0efc2f87c579aec  skill-lib/check_manifest.py  ->  thepapers-niw/skills/niw-package-review/scripts/check_manifest.py
 240e240ced6ef29f8c96af7ee53df444f72f24e510aae2d3614a5e059dcacedb  skill-lib/verify_quotes.py  ->  thepapers-niw/skills/niw-package-review/scripts/verify_quotes.py
 e70189f94cae24284b34b84f5faf6f8307566e1f94290a67f8b8892896b65cff  skill-lib/filing_date_guard.py  ->  thepapers-niw/skills/niw-package-review/scripts/filing_date_guard.py
+1aaddeaf685d97e41e0025b93be7905985e557823d7f88182408ed4556df2fac  knowledge/filing-date-doctrine.md  ->  thepapers-niw/skills/niw-rfe-response/references/filing-date-doctrine.md
+5197c70b8eac94a38ff9656c79a326e6f5610c03eff276e7fd49c6669e5271a9  knowledge/notice-mechanics.md  ->  thepapers-niw/skills/niw-rfe-response/references/notice-mechanics.md
+89d630f0209a1df6f75eb692b9d74bc6cc8d275abc8b59f6352e0cd7a1af3d1c  knowledge/evidence-tiers.md  ->  thepapers-niw/skills/niw-rfe-response/references/evidence-tiers.md
+5f5f8a5cc5638ca9d7fd1cf75fa0ad71739096cd1bc81313e02f4325d15e89d8  knowledge/current-adjudication-bar.md  ->  thepapers-niw/skills/niw-rfe-response/references/current-adjudication-bar.md
+ca2ddab1b82e1d6f67a28b8df6c460a4c3052d3a384a8576ae06a164b27e977e  knowledge/policy-alerts.md  ->  thepapers-niw/skills/niw-rfe-response/references/policy-alerts.md
+860981ad7f5be452634180d53f378de5e754c71fa721e4f18d98395c09a7f8fd  knowledge/policy-manual-substance.md  ->  thepapers-niw/skills/niw-rfe-response/references/policy-manual-substance.md
+fdf4bb74f14d32fd0ad2a8747a9efefb45a37d5560672bfe068ff5c5a11b97fa  knowledge/legal-framework.md  ->  thepapers-niw/skills/niw-rfe-response/references/legal-framework.md
+ce7fade99a68b115b5a83f70aa0425b235b6842d3a0c9795d0efc2f87c579aec  skill-lib/check_manifest.py  ->  thepapers-niw/skills/niw-rfe-response/scripts/check_manifest.py
+240e240ced6ef29f8c96af7ee53df444f72f24e510aae2d3614a5e059dcacedb  skill-lib/verify_quotes.py  ->  thepapers-niw/skills/niw-rfe-response/scripts/verify_quotes.py
+e70189f94cae24284b34b84f5faf6f8307566e1f94290a67f8b8892896b65cff  skill-lib/filing_date_guard.py  ->  thepapers-niw/skills/niw-rfe-response/scripts/filing_date_guard.py
