@@ -25,6 +25,42 @@ jobs:
       - name: Vendored references match knowledge/
         run: build/vendor.sh --check
 
+  quotation-integrity-checksum:
+    # The pack's credibility rests on a reader being able to look up any
+    # quotation. A style pass over surrounding prose must not silently alter
+    # one, so changing a quotation has to be a deliberate act.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verbatim quotations unchanged
+        run: python3 scripts/check_quote_integrity.py
+
+  house-style:
+    # No em-dashes in skill or knowledge files. Output templates in SKILL.md
+    # drive what the model writes to the petitioner, so a dash there reaches
+    # a user. Verbatim quotations are exempt and currently contain none.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No em-dashes in user-facing content
+        run: |
+          if grep -rn '—' knowledge/*.md thepapers-niw/skills/*/SKILL.md \
+                          README.md CHANGELOG.md DISCLAIMER.md docs/*.md; then
+            echo "Found em-dashes. Use a comma, colon, period or parentheses."
+            exit 1
+          fi
+          echo "OK: no em-dashes."
+
+  scripts-behave:
+    # A validator that never fails is not a validator. This runs each bundled
+    # script against a known-bad fixture and requires a non-zero exit, then
+    # against a clean one and requires zero.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bundled validators catch what they claim to
+        run: tests/run_script_tests.sh
+
   quotation-integrity:
     # Every quotation in the adjudication-bar pack is meant to be verbatim from
     # a source decision. This does not re-verify against USCIS, which needs the

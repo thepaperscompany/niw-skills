@@ -1,18 +1,33 @@
-# Which knowledge files each skill carries.
+# Which shared files each skill carries.
 #
-# knowledge/ is the only place a human edits legal substance. This map declares
-# which of those files get copied into each skill's references/ directory at
-# build time, so a standalone .skill upload is self-contained on claude.ai,
-# where a plugin root does not exist.
+# knowledge/ and skill-lib/ are the only places a human edits legal substance
+# or script logic. This map declares which of those files get copied into each
+# skill at build time, so a standalone .skill upload is self-contained on
+# claude.ai, where a plugin root does not exist to resolve a shared path.
 #
-# Format: <skill-name> <knowledge-file>
+# Format: <skill-name> <source-path>
+#   knowledge/*.md  ->  skills/<skill>/references/
+#   skill-lib/*.py  ->  skills/<skill>/scripts/
 
-niw-evaluate  current-adjudication-bar.md
-niw-evaluate  policy-alerts.md
-niw-evaluate  legal-framework.md
-niw-evaluate  policy-manual-substance.md
-niw-evaluate  verdict-rubric.md
-niw-evaluate  archetype-calibration.md
-niw-evaluate  endeavor-proposal.md
-niw-evaluate  eb2-baseline.md
-niw-evaluate  orientation.md
+niw-evaluate  knowledge/current-adjudication-bar.md
+niw-evaluate  knowledge/policy-alerts.md
+niw-evaluate  knowledge/legal-framework.md
+niw-evaluate  knowledge/policy-manual-substance.md
+niw-evaluate  knowledge/verdict-rubric.md
+niw-evaluate  knowledge/archetype-calibration.md
+niw-evaluate  knowledge/endeavor-proposal.md
+niw-evaluate  knowledge/eb2-baseline.md
+niw-evaluate  knowledge/orientation.md
+
+niw-package-review  knowledge/package-review-scope.md
+niw-package-review  knowledge/evidence-tiers.md
+niw-package-review  knowledge/filing-date-doctrine.md
+niw-package-review  knowledge/policy-alerts.md
+niw-package-review  knowledge/current-adjudication-bar.md
+niw-package-review  knowledge/verdict-rubric.md
+niw-package-review  knowledge/policy-manual-substance.md
+niw-package-review  knowledge/archetype-calibration.md
+niw-package-review  knowledge/legal-framework.md
+niw-package-review  skill-lib/check_manifest.py
+niw-package-review  skill-lib/verify_quotes.py
+niw-package-review  skill-lib/filing_date_guard.py

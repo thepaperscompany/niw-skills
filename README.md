@@ -1,14 +1,14 @@
-# NIW Skills — by The Papers Company
+# NIW Skills: by The Papers Company
 
 > Open-source skills for the U.S. EB-2 National Interest Waiver (NIW), prepared under the current USCIS adjudication standard. Distributed as a [Claude Code plugin](https://code.claude.com/docs/en/plugins) (`thepapers-niw`) and as standalone skill files for claude.ai.
 
-Built and maintained by [The Papers Company](https://thepapers.co) — the team behind [Immigration Papers](https://thepapers.co/immigration), a self-petitioner-first NIW DIY platform.
+Built and maintained by [The Papers Company](https://thepapers.co), the team behind [Immigration Papers](https://thepapers.co/immigration), a self-petitioner-first NIW DIY platform.
 
 ## Install
 
-### claude.ai (web) — fastest path
+### claude.ai (web): fastest path
 
-1. Download [`thepapers-niw-evaluate.skill`](dist/thepapers-niw-evaluate.skill) from the [`dist/`](dist/) directory or from [Releases](https://github.com/thepaperscompany/niw-skills/releases).
+1. Download the skill you want from the [`dist/`](dist/) directory or from [Releases](https://github.com/thepaperscompany/niw-skills/releases). Each skill ships its own file: [`thepapers-niw-evaluate.skill`](dist/thepapers-niw-evaluate.skill) to decide whether to pursue NIW, [`thepapers-niw-package-review.skill`](dist/thepapers-niw-package-review.skill) to review an assembled package before filing.
 2. Open claude.ai, go to **Settings** then **Features**, scroll to **Skills**, click **Upload skill**, and upload the file. Requires a plan with code execution enabled.
 3. Toggle the skill on. Done.
 
@@ -41,7 +41,7 @@ The skill is a guided multi-turn conversation, not a single-shot evaluator. You 
 
 > "My senior at work mentioned NIW. I'm an Indian H-1B holder, senior data engineer at a tech company. Can you help me figure out if I should pursue this?"
 
-The skill walks you through what NIW is, the three Dhanasar prongs, what a proposed endeavor means, why specificity matters, and — for Indian and Chinese H-1B petitioners — why an approved I-140 unlocks indefinite H-1B extension under AC21. Then it asks for your profile.
+The skill walks you through what NIW is, the three Dhanasar prongs, what a proposed endeavor means, why specificity matters, and, for Indian and Chinese H-1B petitioners, why an approved I-140 unlocks indefinite H-1B extension under AC21. Then it asks for your profile.
 
 **If you have your CV and want to know what to file under:**
 
@@ -65,7 +65,7 @@ The skill produces a multi-year decision-support roadmap with revisit milestones
 
 **North star:** the user's eventual goal is a successful U.S. green card. The plugin exists to help users (1) decide whether NIW is the right pathway given their life and career, (2) build a maximally strong case toward filing, (3) get through filing successfully, and (4) handle post-filing turbulence if any. Anything that does not serve those four is overhead.
 
-### Primary audience — self-petitioners doing NIW the DIY way
+### Primary audience: self-petitioners doing NIW the DIY way
 
 If you are filing your own EB-2 National Interest Waiver petition without paying $5,000–$10,000 to an immigration attorney upfront, this is built for you. The thesis: most of the work of preparing an NIW case is standardized and rule-driven (Dhanasar three-prong analysis, evidence categorization, endeavor specificity, preponderance burden), and a sufficiently rigorous AI tool can do the heavy lifting so you only pay a lawyer for the parts that genuinely need judgment.
 
@@ -75,7 +75,7 @@ Three sub-cohorts within DIY:
 - **Prospective DIY applicants (6–24 months from filing).** Early-career professionals, postdocs, founders pre-launch. You get a current-state verdict plus an achievable case ceiling with concrete prerequisite actions.
 - **Long-horizon explorers (3–5 years from filing).** Master's and PhD international students who have heard of NIW but are years away from filing. You get a multi-year decision-support roadmap with revisit milestones.
 
-### Secondary audience — immigration attorneys and paralegals
+### Secondary audience: immigration attorneys and paralegals
 
 The plugin is also usable as a paralegal-level pre-screening tool for client intake at solo and boutique immigration firms. It produces a memo your attorney can review in 10 minutes rather than 2 hours.
 
@@ -85,13 +85,14 @@ EB-2 NIW, National Interest Waiver, DIY immigration, self-petition green card, M
 
 ## What's in this plugin
 
-The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) with the [`.claude-plugin/plugin.json`](thepapers-niw/.claude-plugin/plugin.json) manifest and skills under [`thepapers-niw/skills/`](thepapers-niw/skills/). Inside the plugin, skills are namespaced — the evaluate skill is invoked as `/thepapers-niw:niw-evaluate`.
+The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) with the [`.claude-plugin/plugin.json`](thepapers-niw/.claude-plugin/plugin.json) manifest and skills under [`thepapers-niw/skills/`](thepapers-niw/skills/). Inside the plugin, skills are namespaced, the evaluate skill is invoked as `/thepapers-niw:niw-evaluate`.
 
 ### Currently shipped
 
 | Skill | What it does | Status |
 |---|---|---|
-| [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Honest pre-filing legal assessment of an NIW case under preponderance of the evidence — prong-by-prong analysis, what an adjudicator will challenge, and an achievable case ceiling for prospective applicants who are not yet filing-ready. Includes guided endeavor co-design when the user does not arrive with one. Handles all three audience cohorts including long-horizon explorers. | v0.2 (preview) |
+| [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Honest pre-filing legal assessment of an NIW case under preponderance of the evidence: prong-by-prong analysis, what an adjudicator will challenge, and an achievable case ceiling for prospective applicants who are not yet filing-ready. Includes guided endeavor co-design when the user does not arrive with one. Handles all three audience cohorts including long-horizon explorers. | v0.3 |
+| [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Adversarial review of an **assembled** package before filing. Reads the actual exhibits, letters and petition draft; tests each prong against preponderance on documented evidence only; quotes the specific petition passages that overclaim; returns a prioritized fix list and a readiness verdict. Ships three validators that make the discipline mechanical: exhibit citations must resolve to the manifest, petition excerpts must be verbatim, and after filing nothing may rest on a post-filing fact. | v0.1 |
 
 ### Planned next
 
@@ -99,11 +100,11 @@ These ship into the same plugin so the user installs once and gets the suite, wi
 
 | Skill | What it will do | Status |
 |---|---|---|
-| `niw-endeavor-statement` | Draft the multi-paragraph **endeavor statement** narrative that goes into the petition letter — distinct from the *proposed endeavor* (a short framing) selected during `niw-evaluate`. Co-designs the brief, triangulates national-importance evidence from multiple authoritative sources, drafts with every claim anchored to a verifiable source, and includes a self-critique alongside the draft. | v0.3 (planned) |
+| `niw-endeavor-statement` | Draft the multi-paragraph **endeavor statement** narrative that goes into the petition letter, distinct from the *proposed endeavor* (a short framing) selected during `niw-evaluate`. Co-designs the brief, triangulates national-importance evidence from multiple authoritative sources, drafts with every claim anchored to a verifiable source, and includes a self-critique alongside the draft. | v0.3 (planned) |
 | `niw-evidence-finder` | Search authoritative U.S. government sources (federal R&D priority memos, Executive Orders, OSTP priority documents, congressional testimony, agency program announcements, the National Critical and Emerging Technologies List) for endeavor-specific national-importance evidence. Used standalone and called internally by the endeavor-statement and petition-letter skills. | v0.4 (planned) |
 | `niw-recommendation-letter` | Strategy and drafting for expert recommendation letters. Assigns prongs to recommenders by credential and independence; ensures no two letters overlap; produces drafts that name the petitioner's specific contributions. | v0.5 (planned) |
-| `niw-petition-letter` | Draft the **master petition letter** — the central document USCIS adjudicates. Integrates the proposed endeavor, the endeavor statement, prong-by-prong argumentation, the evidence index, and the recommendation-letter strategy into a single structured petition letter with full citation discipline. | v0.6 (planned) |
-| `niw-rfe-analyzer` | Diagnose a USCIS Request for Evidence (RFE) or Notice of Intent to Deny (NOID) and produce a structured point-by-point response framework that addresses the actual concern. | v0.7 (planned) |
+| `niw-petition-letter` | Draft the **master petition letter**: the central document USCIS adjudicates. Integrates the proposed endeavor, the endeavor statement, prong-by-prong argumentation, the evidence index, and the recommendation-letter strategy into a single structured petition letter with full citation discipline. | v0.6 (planned) |
+| `niw-rfe-response` | Diagnose a USCIS Request for Evidence or Notice of Intent to Deny, crosswalk each issue against the record as filed, and draft a point-by-point response. Enforces the rules that make a response survivable: eligibility is fixed at the filing date, the proposed endeavor may not be re-scoped to fit the notice, and the deadline is read from the notice rather than computed. | v0.5 (planned) |
 
 The roadmap is sequenced so each skill builds on the previous: evaluate establishes the framing, endeavor-statement and evidence-finder produce inputs, recommendation-letter rounds out the human-attestation layer, petition-letter is the master document, and RFE-analyzer handles post-filing turbulence. The full suite covers the customer journey from "what is NIW?" through to approval.
 
@@ -115,16 +116,16 @@ Several open-source NIW skill suites exist on GitHub. We respect them. We approa
 
 | Dimension | Typical approach in other suites | This plugin |
 |---|---|---|
-| New-user onboarding | Assumes user already knows what NIW is | **Built-in orientation step** for users new to NIW — covers the three Dhanasar prongs, distinguishes proposed endeavor from endeavor statement, compares NIW against EB-1A and O-1A, and surfaces the AC21 H-1B extension framing for backlogged-country petitioners |
+| New-user onboarding | Assumes user already knows what NIW is | **Built-in orientation step** for users new to NIW, covers the three Dhanasar prongs, distinguishes proposed endeavor from endeavor statement, compares NIW against EB-1A and O-1A, and surfaces the AC21 H-1B extension framing for backlogged-country petitioners |
 | EB-2 baseline check | Assumed | **Explicit baseline check** before NIW analysis. Catches foreign three-year bachelor's, experience not in the specialty, occupation not a profession, and other statutory disqualifiers under 8 C.F.R. § 204.5(k)(2) and *Matter of Katigbak*, 14 I&N Dec. 45 (Reg. Comm. 1971) |
-| Reviewer model | Adversarial pre-filing review or petition audit — stress-test reasoning | **Adjudicator simulation** applying the *preponderance of the evidence* standard from *Matter of Chawathe*, 25 I&N Dec. 369, 375–76 (AAO 2010), prong by prong |
+| Reviewer model | Adversarial pre-filing review or petition audit, stress-test reasoning | **Adjudicator simulation** applying the *preponderance of the evidence* standard from *Matter of Chawathe*, 25 I&N Dec. 369, 375–76 (AAO 2010), prong by prong |
 | Endeavor framing | User must arrive with their own endeavor | **Plugin proposes 2–4 options** grounded in the user's documented record before evaluating. Field-importance evidence is treated as insufficient on its own under *Matter of Dhanasar*, 26 I&N Dec. 884, 889 (AAO 2016) |
 | Verdict discipline | Tiered assessment | **Verdict floor rules.** No prong is rated "Strong" or "Very Strong" unless documented evidence (excluding inferred and unsupported claims) clears preponderance |
-| Long-horizon users | Out of scope | **Multi-year decision-support roadmap** for master's and PhD students 3–5 years from filing — not a "your case is weak" verdict, but a navigation tool with revisit milestones |
+| Long-horizon users | Out of scope | **Multi-year decision-support roadmap** for master's and PhD students 3–5 years from filing, not a "your case is weak" verdict, but a navigation tool with revisit milestones |
 | Output structure | One large memo | Agentic 5-stage conversation flow that mirrors how attorneys and paralegals actually work |
-| Citation hygiene | Inconsistent | **Every legal rule cites authority inline** — Dhanasar, Chawathe, USCIS Policy Manual Vol. 6 Pt. F Ch. 5 |
+| Citation hygiene | Inconsistent | **Every legal rule cites authority inline**: Dhanasar, Chawathe, USCIS Policy Manual Vol. 6 Pt. F Ch. 5 |
 | Hallucination guardrails | Soft | **Hard rules** against inventing AAO decision IDs, citation counts, employer/grant facts, evidence not in the input, or disclaimer URLs |
-| Audience calibration | American-academic register | **Written for an international, ESL-primary, highly-educated audience** — short sentences, technical terms explained on first use, citations in standard form, no idioms, no cultural references |
+| Audience calibration | American-academic register | **Written for an international, ESL-primary, highly-educated audience**: short sentences, technical terms explained on first use, citations in standard form, no idioms, no cultural references |
 
 See [docs/METHODOLOGY.md](./docs/METHODOLOGY.md) for the full reasoning.
 
@@ -140,7 +141,7 @@ The legal substance lives in [`knowledge/`](knowledge/) as plain Markdown, and e
 
 Files under `thepapers-niw/skills/*/references/` are generated copies of `knowledge/`, vendored at build time so a standalone `.skill` works on claude.ai where there is no plugin root. `build/vendor.sh --check` verifies they match; `knowledge/MANIFEST.txt` records the checksums.
 
-## What this is — and is not
+## What this is: and is not
 
 **This is:** a structured legal-analytical framework that helps you (or your attorney) understand how a USCIS adjudicator would currently view your case, where the gaps are, and what targeted preparation would change the verdict.
 
@@ -165,9 +166,9 @@ The plugin and the hosted product use the same evaluation prompts, kept in sync 
 
 We welcome contributions of:
 
-- **AAO decisions** for the curated reference corpus — tagged by the *substantive* failure mode they teach (not procedural dismissals).
-- **Anonymized profile fixtures** for evals — never with PII.
-- **Methodology critiques** — particularly from practicing immigration attorneys, paralegals, and adjudicators. Open an issue.
+- **AAO decisions** for the curated reference corpus, tagged by the *substantive* failure mode they teach (not procedural dismissals).
+- **Anonymized profile fixtures** for evals, never with PII.
+- **Methodology critiques**: particularly from practicing immigration attorneys, paralegals, and adjudicators. Open an issue.
 
 What we will not accept: marketing copy, approved-case lists used as base rates, or content that softens the legal-rigor standard.
 
@@ -183,7 +184,7 @@ Outputs are research-grade legal analysis, not legal advice. See [DISCLAIMER.md]
 
 Apache License 2.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
 
-Apache 2.0 was chosen over MIT for three reasons specific to this project: (1) **trademark protection** — Section 6 explicitly says the license does not grant rights to use the contributor's trademarks, which matters for "The Papers Company" and "thepapers-niw" branding; (2) **patent grant** — Section 3 gives users certainty that no contributor can later sue them over patent claims, which lowers adoption friction for enterprise users; (3) **ecosystem alignment** — the Claude SDK and most Anthropic-ecosystem tooling use Apache 2.0.
+Apache 2.0 was chosen over MIT for three reasons specific to this project: (1) **trademark protection**: Section 6 explicitly says the license does not grant rights to use the contributor's trademarks, which matters for "The Papers Company" and "thepapers-niw" branding; (2) **patent grant**: Section 3 gives users certainty that no contributor can later sue them over patent claims, which lowers adoption friction for enterprise users; (3) **ecosystem alignment**: the Claude SDK and most Anthropic-ecosystem tooling use Apache 2.0.
 
 ## Disclaimer
 

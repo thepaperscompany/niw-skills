@@ -4,15 +4,15 @@ This directory contains the published validation numbers for `thepapers-niw-eval
 
 The skill was validated against seven eval fixtures spanning the full conversation taxonomy:
 
-1. **Cold-start orientation** — Indian H-1B petitioner asks "what is NIW?" (Stage 1 only)
-2. **Postdoc, no endeavor, partial unfamiliarity** — orientation folded into options (Stage 1 + Stage 2)
-3. **Postdoc, specific endeavor** — direct full evaluation (Stage 4)
-4. **Postdoc picks Option A** — continuation from a prior turn (Stage 3 → Stage 4)
-5. **Industry ML engineer, theme-level endeavor** — endeavor reframing for a too-broad framing
-6. **Founder, market-size endeavor** — entrepreneur reframing under USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(6)
-7. **EB-2 baseline at risk** — eligibility pre-check before any Dhanasar analysis
+1. **Cold-start orientation**: Indian H-1B petitioner asks "what is NIW?" (Stage 1 only)
+2. **Postdoc, no endeavor, partial unfamiliarity**: orientation folded into options (Stage 1 + Stage 2)
+3. **Postdoc, specific endeavor**: direct full evaluation (Stage 4)
+4. **Postdoc picks Option A**: continuation from a prior turn (Stage 3 → Stage 4)
+5. **Industry ML engineer, theme-level endeavor**: endeavor reframing for a too-broad framing
+6. **Founder, market-size endeavor**: entrepreneur reframing under USCIS Policy Manual Vol. 6 Pt. F Ch. 5(D)(6)
+7. **EB-2 baseline at risk**: eligibility pre-check before any Dhanasar analysis
 
-All seven fixtures are reproducible — they live at `thepapers-niw-evaluate/evals/fixtures/`.
+All seven fixtures are reproducible, they live at `thepapers-niw-evaluate/evals/fixtures/`.
 
 ## Headline result
 
@@ -26,8 +26,8 @@ The pass rate is against rubric-based assertions per fixture: correct entry-stat
 
 ## Files
 
-- `benchmark.json` — full structured benchmark output with per-eval results, expectations, and analyst notes.
-- `benchmark.md` — human-readable summary table.
+- `benchmark.json`: full structured benchmark output with per-eval results, expectations, and analyst notes.
+- `benchmark.md`: human-readable summary table.
 
 ## Caveats
 

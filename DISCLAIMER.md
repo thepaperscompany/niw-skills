@@ -12,9 +12,9 @@ These skills produce **legal-analytical content**, not legal advice.
 
 ## Who should not rely on this
 
-- Anyone facing an active **Notice to Appear (NTA)**, **removal proceeding**, or **detention** — contact a licensed immigration attorney immediately.
-- Anyone with **prior immigration violations, criminal history, or fraud allegations** — these implicate analyses outside this skill's scope.
-- Anyone whose **deadline to file or respond to USCIS is imminent** — do not delay attorney consultation to run an evaluation.
+- Anyone facing an active **Notice to Appear (NTA)**, **removal proceeding**, or **detention**: contact a licensed immigration attorney immediately.
+- Anyone with **prior immigration violations, criminal history, or fraud allegations**: these implicate analyses outside this skill's scope.
+- Anyone whose **deadline to file or respond to USCIS is imminent**: do not delay attorney consultation to run an evaluation.
 
 ## Use at your own risk
 

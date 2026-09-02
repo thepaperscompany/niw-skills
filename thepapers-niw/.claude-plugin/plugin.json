@@ -1,7 +1,7 @@
 {
   "name": "thepapers-niw",
-  "description": "U.S. EB-2 National Interest Waiver (NIW) skills for DIY self-petitioners and immigration professionals. Includes niw-evaluate: pre-filing case evaluation under the current USCIS adjudication standard, with Dhanasar three-prong analysis, preponderance verdict floors, citation discipline, and an achievable case ceiling for prospective applicants. Legal substance is published in knowledge/ and distilled from the complete public pool of 1,040 AAO non-precedent NIW decisions issued 2025-01 through 2026-06. Future skills will cover endeavor-statement drafting, national-importance evidence research, recommendation letters, petition letter drafting, pre-filing package review, and RFE/NOID response.",
-  "version": "0.3.0",
+  "description": "U.S. EB-2 National Interest Waiver (NIW) skills for DIY self-petitioners and immigration professionals. niw-evaluate gives an honest pre-filing assessment under the Dhanasar three-prong framework. niw-package-review reads an assembled package as a skeptical adjudicator would, tests each prong against preponderance on documented evidence only, quotes the petition passages that overclaim, and returns a prioritized fix list and a readiness verdict. Legal substance is published in knowledge/ and distilled from the complete public pool of 1,040 AAO non-precedent NIW decisions issued 2025-01 through 2026-06. Future skills will cover endeavor-statement drafting, national-importance evidence research, recommendation letters, petition letter drafting, and RFE/NOID response.",
+  "version": "0.4.0",
   "author": {
     "name": "The Papers Company",
     "url": "https://thepapers.co"
