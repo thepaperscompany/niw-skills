@@ -54,6 +54,9 @@ PATTERNS=(
   "backend tooling command|(pm:drift|eval:niw|npm run [a-z:]*niw)"
   "prompt layer vocabulary|Layer-[0-9] (prefix|pack)"
   "internal datastore or vendor|(Firestore|Vertex AI|Cloud Run|OnePassportService)"
+  # How a corpus or pack was actually assembled is internal method. What it
+  # covers and what it says are public; the pipeline that produced it is not.
+  "corpus build method|(crawl|scrape|download)(ed|ing)? [0-9,]+|mechanically classified|read in full|during distillation|classified for outcome"
 )
 
 # Files that legitimately contain a trigger word. Justify every entry.

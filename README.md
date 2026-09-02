@@ -1,6 +1,6 @@
 # NIW Skills: by The Papers Company
 
-> Open-source skills for the U.S. EB-2 National Interest Waiver (NIW), prepared under the current USCIS adjudication standard. Distributed as a [Claude Code plugin](https://code.claude.com/docs/en/plugins) (`thepapers-niw`) and as standalone skill files for claude.ai.
+> Open-source skills covering the U.S. EB-2 National Interest Waiver (NIW) from first question to filed response: deciding whether to pursue it, choosing what to file under, reviewing an assembled package before filing, and answering a Request for Evidence. Prepared under the current USCIS adjudication standard. Distributed as a [Claude Code plugin](https://code.claude.com/docs/en/plugins) (`thepapers-niw`) and as standalone skill files for claude.ai.
 
 Built and maintained by [The Papers Company](https://thepapers.co), the team behind [Immigration Papers](https://thepapers.co/immigration), a self-petitioner-first NIW DIY platform.
 
@@ -33,33 +33,57 @@ Once loaded, the skill is invoked as `/thepapers-niw:niw-evaluate` or automatica
 
 The [`SKILL.md`](thepapers-niw/skills/niw-evaluate/SKILL.md) file is plain Markdown. Paste it into a system prompt or custom-GPT instruction block. Quality depends on the host model's ability to read and apply the cited authorities.
 
-## How to use it
+## Where you are, and what to use
 
-The skill is a guided multi-turn conversation, not a single-shot evaluator. You can start at any of these points:
+NIW is a long process. Most people arrive somewhere in the middle of it, so start at the row that describes you.
 
-**If you have heard of NIW but are not sure what it is:**
+### "I have heard of NIW but I do not really know what it is"
 
-> "My senior at work mentioned NIW. I'm an Indian H-1B holder, senior data engineer at a tech company. Can you help me figure out if I should pursue this?"
+You are an international student, a postdoc, or someone working in the U.S. on a temporary visa, and a colleague mentioned this route. You do not have a CV ready and you are not sure it applies to you.
 
-The skill walks you through what NIW is, the three Dhanasar prongs, what a proposed endeavor means, why specificity matters, and, for Indian and Chinese H-1B petitioners, why an approved I-140 unlocks indefinite H-1B extension under AC21. Then it asks for your profile.
+> "My senior at work mentioned NIW. I am an Indian citizen on an H-1B, working as a senior data engineer. Can you help me figure out if this is worth pursuing?"
 
-**If you have your CV and want to know what to file under:**
+`niw-evaluate` starts with a plain-language orientation: what the waiver is, the three questions USCIS asks, what a "proposed endeavor" means and why it is not your job title, and how NIW compares with the other routes. Then it asks for your background. It will not rate a case it has not seen.
 
-> "I'm a postdoc in computational biology. I don't really know what a 'proposed endeavor' is supposed to look like for someone like me. Can you look at my profile and help me figure out what I should file under?" *[attach your CV]*
+### "I am years away, but I want to know what to build toward"
 
-The skill reads your profile and proposes 2–4 proposed endeavor options grounded in what your record can credibly support, with strengths, weaknesses, and an anticipated best-case outcome for each. You pick one (or ask for a different framing), and it runs the full prong-by-prong evaluation against the selected option.
+You are a master's or PhD student, or early in your career, and filing is realistically several years out. You want to know whether to shape your work around this.
 
-**If you have a proposed endeavor and want a full evaluation:**
+> "I am a second-year PhD in materials science. I might apply for NIW eventually. Where do I stand and what should I be doing?"
 
-> "Here is my profile and proposed endeavor. Please run a full evaluation against all three Dhanasar prongs." *[attach CV + endeavor description]*
+`niw-evaluate` treats this as navigation rather than a verdict. You get an honest read of where the record stands today, what a realistic ceiling looks like over multiple academic years, which specific things would move it, and when to revisit. If your trajectory points at a different route, it says so.
 
-The skill produces a structured memo: prong-by-prong analysis under preponderance of the evidence, what an adjudicator will challenge, current verdict, achievable case ceiling in N months, and what to do in the next 30/60/90 days.
+### "I have a CV but no idea what to file under"
 
-**If you are 3–5 years from filing (master's or PhD student):**
+You have a real record and no proposed endeavor, which is the single most common blocker. The endeavor is not your occupation and not your field, and getting it wrong is the most common reason petitions are refused.
 
-> "I'm a second-year PhD in [field]. I might apply for NIW in a few years but I'm not sure where I stand or whether NIW is even right for me."
+> "I am a postdoc in computational biology. I do not know what a proposed endeavor is supposed to look like for someone like me." *(attach your CV)*
 
-The skill produces a multi-year decision-support roadmap with revisit milestones at 12 and 24 months, including comparison to alternative pathways (EB-1A in particular) if your trajectory exceeds NIW requirements. It is calibrated as a navigator for this cohort, not a fortune-teller.
+`niw-evaluate` reads your record and proposes a few candidate endeavors it can actually support, each with what backs it, what is missing, and what it could become with preparation. You choose or ask for a different framing, then it runs the full analysis against your choice.
+
+### "I have my endeavor and I want an honest assessment"
+
+You are deciding whether to spend the filing fee.
+
+> "Here is my profile and proposed endeavor. Run a full evaluation." *(attach both)*
+
+`niw-evaluate` produces a structured memo: each of the three prongs analyzed on the evidence you actually have, what an adjudicator will push back on, where the case stands today, what it could become and in how long, and what to do in the next 30, 60 and 90 days.
+
+### "I have drafted a petition and assembled evidence. Is it ready?"
+
+This is the decision that costs the most to get wrong. Since a 2026 policy change, USCIS can refuse a petition outright without first asking for more evidence, so filing early no longer buys a second chance.
+
+> "My package is in ./niw-case. Is it ready to file?"
+
+`niw-package-review` reads your actual exhibits, letters and petition draft the way a skeptical adjudicator would. It tests each prong against the evidence that is genuinely documented, quotes the specific sentences in your petition that claim more than your record supports, tracks which exhibits USCIS has actually seen, and gives you a prioritized fix list.
+
+### "USCIS sent me a Request for Evidence and I do not know what it wants"
+
+You have a deadline you cannot extend and one submission.
+
+> "I got an RFE. It is in ./niw-case/notice/rfe.md. What is it asking and how do I respond?"
+
+`niw-rfe-response` reads the deadline printed on your notice rather than calculating one, works through each contested point against the record you actually filed, stops so you can correct anything it got wrong about your own file, and then drafts. It holds two rules that decide these responses and that are easy to get backwards: your eligibility is judged on the facts as they stood the day you filed, and you cannot rewrite your proposed endeavor to fit the notice, even when the notice asks for a more detailed description of it.
 
 ## Who this is for
 
@@ -85,28 +109,29 @@ EB-2 NIW, National Interest Waiver, DIY immigration, self-petition green card, M
 
 ## What's in this plugin
 
-The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) with the [`.claude-plugin/plugin.json`](thepapers-niw/.claude-plugin/plugin.json) manifest and skills under [`thepapers-niw/skills/`](thepapers-niw/skills/). Inside the plugin, skills are namespaced, the evaluate skill is invoked as `/thepapers-niw:niw-evaluate`.
+The repo at `thepapers-niw/` is a [Claude Code plugin](https://code.claude.com/docs/en/plugins) with a [`.claude-plugin/plugin.json`](thepapers-niw/.claude-plugin/plugin.json) manifest and skills under [`thepapers-niw/skills/`](thepapers-niw/skills/). Inside the plugin, skills are namespaced, so `niw-evaluate` is invoked as `/thepapers-niw:niw-evaluate`.
 
-### Currently shipped
+Skills are listed in the order you would use them.
 
-| Skill | What it does | Status |
+### Shipped
+
+| # | Skill | What it does | Status |
+|---|---|---|---|
+| 1 | [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Decide whether to pursue NIW, and under what proposed endeavor. Orientation for newcomers, endeavor co-design when you do not have one, then a prong-by-prong assessment with a realistic ceiling and dated next steps. | v0.3 |
+| 2 | [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Review an assembled package before filing. Reads the actual exhibits, letters and petition draft, tests each prong against documented evidence only, quotes the passages that overclaim, tracks which exhibits USCIS has seen, and returns a prioritized fix list and a readiness verdict. | v0.1 |
+| 3 | [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response) | Work a Request for Evidence or Notice of Intent to Deny through to a drafted response. Reads the printed deadline, works each contested point against the record as filed, stops for your corrections, then drafts. | v0.1 |
+
+### Planned
+
+These ship into the same plugin, so you install once and future skills arrive with a plugin update. They are listed in the order they fit the process.
+
+| # | Skill | What it will do |
 |---|---|---|
-| [`niw-evaluate`](thepapers-niw/skills/niw-evaluate) | Honest pre-filing legal assessment of an NIW case under preponderance of the evidence: prong-by-prong analysis, what an adjudicator will challenge, and an achievable case ceiling for prospective applicants who are not yet filing-ready. Includes guided endeavor co-design when the user does not arrive with one. Handles all three audience cohorts including long-horizon explorers. | v0.3 |
-| [`niw-package-review`](thepapers-niw/skills/niw-package-review) | Adversarial review of an **assembled** package before filing. Reads the actual exhibits, letters and petition draft; tests each prong against preponderance on documented evidence only; quotes the specific petition passages that overclaim; returns a prioritized fix list and a readiness verdict. Ships three validators that make the discipline mechanical: exhibit citations must resolve to the manifest, petition excerpts must be verbatim, and after filing nothing may rest on a post-filing fact. | v0.1 |
-| [`niw-rfe-response`](thepapers-niw/skills/niw-rfe-response) | Works a Request for Evidence or Notice of Intent to Deny from the printed deadline through a drafted response. Crosswalks each contested issue against the record as actually filed, stops for you to correct what it found, then drafts. Holds the rules that decide these responses: eligibility is fixed at the filing date, and the endeavor may not be re-scoped to fit the notice even when the notice asks for a more detailed description. | v0.1 |
-
-### Planned next
-
-These ship into the same plugin so the user installs once and gets the suite, with future updates landing via plugin update.
-
-| Skill | What it will do | Status |
-|---|---|---|
-| `niw-endeavor-statement` | Draft the multi-paragraph **endeavor statement** narrative that goes into the petition letter, distinct from the *proposed endeavor* (a short framing) selected during `niw-evaluate`. Co-designs the brief, triangulates national-importance evidence from multiple authoritative sources, drafts with every claim anchored to a verifiable source, and includes a self-critique alongside the draft. | v0.3 (planned) |
-| `niw-evidence-finder` | Search authoritative U.S. government sources (federal R&D priority memos, Executive Orders, OSTP priority documents, congressional testimony, agency program announcements, the National Critical and Emerging Technologies List) for endeavor-specific national-importance evidence. Used standalone and called internally by the endeavor-statement and petition-letter skills. | v0.4 (planned) |
-| `niw-recommendation-letter` | Strategy and drafting for expert recommendation letters. Assigns prongs to recommenders by credential and independence; ensures no two letters overlap; produces drafts that name the petitioner's specific contributions. | v0.5 (planned) |
-| `niw-petition-letter` | Draft the **master petition letter**: the central document USCIS adjudicates. Integrates the proposed endeavor, the endeavor statement, prong-by-prong argumentation, the evidence index, and the recommendation-letter strategy into a single structured petition letter with full citation discipline. | v0.6 (planned) |
-
-The roadmap is sequenced so each skill builds on the previous: evaluate establishes the framing, endeavor-statement and evidence-finder produce inputs, recommendation-letter rounds out the human-attestation layer, petition-letter is the master document, and RFE-analyzer handles post-filing turbulence. The full suite covers the customer journey from "what is NIW?" through to approval.
+| 4 | `niw-evidence-plan` | Turn an evaluation into a concrete gathering plan: what to obtain, from whom, in what form, and in what order, calibrated to whether the record is academic, industry or entrepreneurial. Writes the exhibit manifest the later skills read. |
+| 5 | `niw-evidence-finder` | Search authoritative U.S. government sources for evidence that the specific endeavor advances a named national priority, and rate honestly how strong what it found actually is. |
+| 6 | `niw-endeavor-statement` | Draft the endeavor statement that goes into the petition letter. This is the long narrative document, distinct from the short proposed endeavor chosen during `niw-evaluate`. Every national-priority claim anchored to a source, with a self-critique beside the draft. |
+| 7 | `niw-recommendation-letter` | Strategy and drafting for expert letters. Assigns prongs to recommenders by credential and independence, keeps any two letters from covering the same ground, and writes only what each recommender could plausibly know. |
+| 8 | `niw-petition-letter` | Draft the master petition letter, the document USCIS actually adjudicates. Integrates the endeavor, the prong arguments, the evidence index and the letter strategy, with every claim tied to an exhibit. |
 
 See [CHANGELOG.md](./CHANGELOG.md) for the full release history.
 
@@ -135,7 +160,7 @@ Most skill suites assert that they encode expert reasoning. We would rather you 
 
 The legal substance lives in [`knowledge/`](knowledge/) as plain Markdown, and every file states its source and the date it was checked:
 
-- [`current-adjudication-bar.md`](knowledge/current-adjudication-bar.md) is distilled from the **complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06**: 1,040 decisions crawled, 1,036 mechanically classified for outcome and dispositive issue, about 35 read in full. It carries 21 numbered patterns with 35 verbatim quotations, each copied from its source decision and checked against it. Pick any quote and look it up.
+- [`current-adjudication-bar.md`](knowledge/current-adjudication-bar.md) is distilled from the **complete public pool of AAO non-precedent NIW decisions issued 2025-01 through 2026-06**. It carries 21 numbered patterns built on verbatim quotations from those decisions. Pick any quote and look it up.
 - It also states its own sampling bias in the header. This is a denial-heavy appeal pool: approved petitions and unappealed denials are invisible in it. So it calibrates how closely to scrutinize a record, and is never used to produce approval rates or a probability of approval. A suite that reports base rates from this corpus is reading it wrong.
 - [`policy-alerts.md`](knowledge/policy-alerts.md) tracks the USCIS policy changes that alter how a case should be prepared, including PA-2026-05 (effective 2026-08-05), which restored officers' full discretion to deny without first issuing a Request for Evidence.
 

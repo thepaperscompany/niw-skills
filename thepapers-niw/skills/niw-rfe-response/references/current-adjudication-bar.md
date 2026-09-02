@@ -1,8 +1,7 @@
 # Current adjudication bar: how NIW cases are actually decided
 
-> **Source.** The complete public pool of AAO non-precedent NIW (EB-2/B5) decisions issued 2025-01 through 2026-06. 1,040 decisions crawled and downloaded, 1,036 mechanically classified for outcome and dispositive issue, with the highest-substance analysis sections and about 35 decisions read in full. Distilled 2026-07-20.
-> **Verification.** Every quotation below was copied from the source decision and checked against it during distillation. None was generated from memory.
-> **Selection caveat.** This is a denial-heavy appeal pool. Approved petitions and unappealed denials are invisible in it. These patterns calibrate how closely to scrutinize a record. They are never outcome rates, base rates, or predictions, and they must never be used to estimate a probability of approval.
+> **Source.** The complete public pool of AAO non-precedent NIW (EB-2/B5) decisions issued 2025-01 through 2026-06. Quotations are verbatim from those decisions.
+> **Selection caveat.** This is a denial-heavy appeal pool. Petitions approved at first instance and denials never appealed are invisible in it. These patterns calibrate how closely to scrutinize a record. They are never outcome rates, base rates, or predictions, and must never be used to estimate a probability of approval.
 
 ## Contents
 
@@ -18,9 +17,9 @@
 
 Read it before drafting any analysis. It does not replace the legal framework in `legal-framework.md`; it is the lens through which that framework is applied to a real record today.
 
-These decisions teach adjudicative reasoning. They are not authority to hand the petitioner: do not cite these case numbers in user-facing output, and never present a pattern as a prediction about their case. Where the pool concentrates: 751 dismissals, about 90 favorable withdrawals or remands, about 15 sustained appeals, 178 motions. Of the dismissals, roughly 85% turn on Dhanasar prong 1, nearly half involve the EB-2 threshold, and prongs 2 and 3 are usually reserved once an earlier element fails (INS v. Bagamasbad). Every layer below still produces real denials.
+These decisions teach adjudicative reasoning. They are not authority to hand the petitioner: do not cite these case numbers in user-facing output, and never present a pattern as a prediction about their case. Across the pool, the great majority of dismissals turn on Dhanasar prong 1, and roughly half involve the EB-2 threshold. Prongs 2 and 3 are usually reserved once an earlier element fails (INS v. Bagamasbad). Every layer below still produces real denials.
 
-A small number of decisions from late 2024 and early 2025 are retained where they remain the clearest statement of a holding.
+A small number of decisions from late 2024 and early 2025 are included where they remain the clearest statement of a holding.
 
 --- Cross-cutting adjudication posture ---
 
