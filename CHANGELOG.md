@@ -4,7 +4,7 @@ All notable changes to the NIW skill suite will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Each skill is versioned independently. The frontmatter `version` field in each `SKILL.md` is the source of truth for that skill.
+The suite ships as one plugin and is versioned as a whole. `thepapers-niw/.claude-plugin/plugin.json` is the source of truth. Skill frontmatter carries no version field, because only a fixed set of frontmatter keys survives an upload to claude.ai and `version` is not among them.
 
 ## Sync policy
 
@@ -14,7 +14,7 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ---
 
-## [Unreleased]
+## [1.0.0] - 2026-09-02
 
 ### Fixed: a skill said it wrote a file and had not
 
