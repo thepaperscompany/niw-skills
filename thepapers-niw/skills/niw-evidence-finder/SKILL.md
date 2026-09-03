@@ -28,9 +28,9 @@ So the question is narrower: **is there a named national priority that this ende
 Evidence search:
 - [ ] 1. Read the endeavor and extract what to search for
 - [ ] 2. Run multiple targeted searches
-- [ ] 3. Tier each source and record it
+- [ ] 3. Tier each source and record it in the memo file as you go
 - [ ] 4. Rate sufficiency honestly
-- [ ] 5. Write the memo
+- [ ] 5. Finish the memo
 ```
 
 ### Step 1: what to search for
@@ -63,7 +63,11 @@ If it is not Strong, say what to do instead, and do not suggest finding more Tie
 
 ### Step 5: write the memo
 
-Write `niw-case/research/national-importance.md`, ordered Tier A first. Include the retrieval date. Downstream skills draft only from sources in this file, so anything not in it will not be cited.
+Create `niw-case/research/national-importance.md` using the Write tool, ordered Tier A first, with the retrieval date. Later skills draft only from sources in this file and cannot see your reply, so a source described only in the conversation will never be cited.
+
+Searching can consume a long session. Write the file as soon as you have your first recorded source and update it as you go, rather than composing it at the end. A run that stops early then still leaves the petitioner with what you found, instead of nothing.
+
+Write the file first, then confirm it is there, and only then describe it. Do not tell the petitioner it was saved unless you saved it.
 
 ## Rules
 

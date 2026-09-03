@@ -18,7 +18,7 @@ Critique from practicing immigration attorneys, paralegals and former adjudicato
 
 - Marketing copy, or anything that softens the legal-rigor standard.
 - Approved-case lists, or anything proposing that outputs be scored against case outcomes. Outputs are reasoned from law and policy, not matched to results. See [docs/METHODOLOGY.md](./docs/METHODOLOGY.md).
-- Claims about what this produces: that it is lawyer-quality, attorney-grade, a substitute for counsel, cheaper than counsel, or that it makes approval likely. Our build rejects these automatically.
+- Claims about the quality tier of what this produces, comparisons against what a licensed professional would charge, or any suggestion that a petition prepared this way is more likely to succeed. Our build rejects these automatically, so a pull request making one will fail before review.
 - Anyone's personal data, in any form.
 
 ## Making a change

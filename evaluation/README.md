@@ -1,53 +1,51 @@
-# Evaluation
+# Regression tests
 
-Cases live at [`thepapers-niw/evals/`](../thepapers-niw/evals/), authored in the format `claude plugin eval` expects: each case is a directory with a `prompt.md` carrying frontmatter, a `graders/` directory of typed graders, and a `workspace/` holding the case's input files.
+These cases pin specific legal rules the skills are supposed to enforce. Each one is a record shaped so the intuitive answer is the wrong answer under a named authority, plus a grader that checks whether the rule survived.
 
-`claude plugin eval` is the official harness and is currently early access. Until it is available here, [`tests/run_evals.py`](../tests/run_evals.py) runs the same cases and applies the same with-plugin / without-plugin ablation, so the suite is measured rather than aspirational.
+Cases live at [`thepapers-niw/evals/`](../thepapers-niw/evals/), authored in the format `claude plugin eval` expects: a directory per case with a `prompt.md` carrying frontmatter, a `graders/` directory of typed graders, and a `workspace/` holding the case's input files.
+
+## This is not a quality benchmark, and we do not publish a score
+
+We could. We are choosing not to, for two reasons.
+
+**An ablation measures influence, not correctness.** Running a case with and without the plugin tells you how far the skill moved the answer. It says nothing about whether the answer is right. If a rule we encoded is wrong, a large delta is a precise measurement of how firmly we planted the mistake, reported as a win.
+
+**The cases and the skills were written by the same hand.** Both come from the same reading of the same authorities. A suite built that way tends to confirm its own premises. It will keep passing exactly where those premises are shared, including where they are shared and wrong, and it cannot detect that about itself. Publishing its output as evidence of quality would dress up a closed loop as an external check.
+
+So the suite is used for the one job it is genuinely good at: catching the day an edit to a knowledge pack or a skill quietly stops enforcing a rule that used to hold.
+
+## What each case pins
+
+| Case | The rule it pins | Authority |
+|---|---|---|
+| `forms-are-out-of-scope` | Missing forms, fees and signatures are filing mechanics, not gaps in the evidentiary record | Scope of a package review |
+| `filed-case-no-post-filing-cure` | After filing, eligibility is fixed as of the filing date, so no cure may rest on a fact that arose later | 8 CFR 103.2(b)(12); *Matter of Katigbak*, 14 I&N Dec. 45 (Reg. Comm. 1971) |
+| `not-filed-exhibit-is-a-gap` | A document the petitioner holds but never sent is not record support | 8 CFR 103.2(b)(2) |
+| `rfe-endeavor-detail-trap` | An RFE asking for "a detailed description of the proposed endeavor" is not license to re-scope the endeavor | *Matter of Izummi*, 22 I&N Dec. 169 (Comm. 1998) |
+| `industry-endeavor-not-field` | Field-level importance is not endeavor importance, and an industry record is not judged on publication counts | *Matter of Dhanasar*, 26 I&N Dec. 884, 889 (AAO 2016) |
+| `founder-market-size-insufficient` | Market size and membership in a named technology list are framing, not proof | *Matter of Dhanasar*, 26 I&N Dec. 884, 889 (AAO 2016) |
+| `orientation-no-profile` | No verdict on a one-sentence self-description. Orient the user and ask for the record | Preponderance standard, *Matter of Chawathe*, 25 I&N Dec. 369, 375–76 (AAO 2010) |
+
+## Running them
+
+`claude plugin eval` is the official harness and is currently early access. Until it is available here, [`tests/run_evals.py`](../tests/run_evals.py) runs the same cases in the same format.
 
 ```bash
-tests/run_evals.py                        # every case, both arms
+tests/run_evals.py                        # every case
 tests/run_evals.py --case forms-*         # filter by name
 tests/run_evals.py --arms with            # skip the baseline arm
 tests/run_evals.py --judge-votes 3        # judge samples per LLM grader
 ```
 
-## What we measure, and why the baseline arm matters
+The baseline arm is still worth running, not as a scoreboard but as a triviality check: a case the base model passes on its own is not testing the skill, and knowing which cases those are keeps us from mistaking an easy suite for a strong one. Cases that show no delta are kept and left alone. We do not tune a fixture until it produces one.
 
-Every case runs twice: once with the plugin loaded, once without. The number that matters is the **delta**, because a case the base model already passes tells you the skill adds nothing there. Reporting only the with-plugin score would let a suite of easy cases look like evidence of quality.
+## Reading a result honestly
 
-We do not tune a fixture until it produces a delta. A case that shows no delta is kept and reported as showing no delta.
+- A pass means the rule held on this fixture, with this model, on this run. It is not a statement about the next case a real person brings.
+- Fixtures are synthetic profiles. There are no real petitioner records in this repository.
+- LLM graders are sampled three times and decided by majority. A single sample was not reliable: it once marked a correct response FAIL while its own justification described the response doing the right thing.
+- Grader infrastructure failures are recorded as unjudged and excluded, never scored as substantive failures. [`tests/test_runner_logic.py`](../tests/test_runner_logic.py) covers that offline.
 
-## Results
+## What would actually be evidence
 
-Measured 2026-09-02, one run per arm, three judge votes per LLM grader. One run per arm is a weak sample and the numbers below should be read as directional.
-
-| Case | With plugin | Baseline | Delta | What it tests |
-|---|---|---|---|---|
-| `forms-are-out-of-scope` | 100% | 40% | **+60** | Missing forms, fees and signatures must not be reported as deficiencies in the evidentiary record |
-| `filed-case-no-post-filing-cure` | 100% | 67% | **+33** | After filing, no cure may rest on a post-filing fact, and the endeavor may not be re-scoped |
-| `not-filed-exhibit-is-a-gap` | 100% | 100% | 0 | A document the petitioner holds but never sent is not record support |
-| `rfe-endeavor-detail-trap` | 100% | 70% | **+30** | An RFE asking for "a detailed description of the proposed endeavor" must not be answered by rewriting the endeavor |
-| `industry-endeavor-not-field` | pending | pending | pending | Field-level framing is not endeavor importance; industry records are not judged on publications |
-| `founder-market-size-insufficient` | not yet run | not yet run | | Market size and technology-list membership are framing, not proof |
-| `orientation-no-profile` | not yet run | not yet run | | No verdict on a one-sentence description; orient and ask |
-
-### What the deltas actually show
-
-**The endeavor lock is the sharpest finding, and it replicated.** In `rfe-endeavor-detail-trap` the notice asks for "a detailed description of the proposed endeavor" on a filed petition. The baseline advised the petitioner to "sharpen the endeavor statement" and to "rewrite `endeavor.md` from a field description into a specific endeavor." That is the *Matter of Izummi* material change, made in response to the request most likely to provoke it. Two independent cases now turn on this rule.
-
-**The same rule, in the package-review case.** On a filed petition, the baseline recommended "a rewritten endeavor statement with actual specificity." Rewriting the endeavor after filing is a material change under *Matter of Izummi* and is held against the petitioner's consistency. It is the intuitive move and it is the one that damages the case. The plugin warned against it explicitly.
-
-**Scope discipline was the largest delta.** The baseline listed a missing Form I-140, filing fee and G-28 under "not present, and normally expected," treating out-of-scope filing mechanics as gaps in the evidentiary record.
-
-**Filing status showed no delta, and we are reporting that.** The case was first written with exhibits labelled `NOT FILED` in the manifest, which gave the answer away; the baseline passed. It was rewritten so filing status had to be inferred from a note in the package, and the baseline passed again. A capable model handles this without the skill. The discipline is still worth encoding, because it holds when a package is larger and messier than a fixture, but on this evidence it is not a differentiator and we will not claim it as one.
-
-## Known limitations
-
-- One run per arm. The official harness defaults to three, and variance at n=1 is real.
-- The remaining cases are unrun because the session hit a usage limit partway through.
-- LLM graders are sampled three times and decided by majority. A single sample was not reliable: it marked a correct response FAIL while its own justification described the response doing the right thing.
-- Fixtures are synthetic profiles, not real petitioner records.
-
-## Earlier results
-
-`benchmark.json` and `benchmark.md` hold the v0.1 numbers from the previous bespoke harness (seven fixtures, +68 percentage points over baseline on rubric assertions). Those were produced by a different harness with a different grading method and are not comparable to the table above. They are kept for history.
+Real petitioners, real notices, real adjudications, and correction from people who do this work. None of that can be manufactured in a fixture, and none of it is in this repository. The most useful thing anyone can send us is the case where a skill states a rule wrongly, with the authority that says so. [CONTRIBUTING.md](../CONTRIBUTING.md) explains how.

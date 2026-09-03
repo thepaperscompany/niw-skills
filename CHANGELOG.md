@@ -16,6 +16,16 @@ The hosted prompt is the source of truth. Skills lag behind by zero or more prod
 
 ## [Unreleased]
 
+### Fixed: a skill said it wrote a file and had not
+
+**`niw-evidence-plan` reported "Written to `niw-case/evidence/manifest.md`" without writing it.** Found by running the skill, not by review. It rendered the manifest as a table in its reply and described it as saved. Every later skill reads that file and none of them can see the reply, so the case was left with no manifest while the petitioner was told they had one.
+
+Step 5 now states that the manifest is a file created with the Write tool rather than a table in the reply, requires confirming the file exists before describing it, and adds a rule: a file counts as written only if you wrote it. Verified by re-running the same case, which now produces the file.
+
+**`niw-evidence-finder` composed its memo only at the end**, so a run that stopped early left nothing on disk despite having retrieved good sources. It now writes `niw-case/research/national-importance.md` as soon as it has its first recorded source and updates it as it goes.
+
+Both skills produce the files the rest of the suite depends on, and neither had a check that the file arrived. The general lesson is recorded in [CONTRIBUTING.md](./CONTRIBUTING.md): the most useful bug report is one from running the thing.
+
 ### Plugin, 1.0.0, the lifecycle is complete
 
 Five new skills complete the path from first question to filed response. The plugin now covers eight steps, and a user installs once.
@@ -78,17 +88,13 @@ Telling a user to consult a licensed immigration attorney of their own choosing 
 
 **Six cases**, four of them written to catch a regression that would actually cost a petitioner something: filing status of an unsent exhibit, the post-filing lock on facts and on the endeavor, scope discipline about forms and fees, and field-versus-endeavor framing.
 
-**Measured deltas** (2026-09-02, one run per arm, three judge votes per grader; directional at this sample size):
+**The suite is regression coverage, and we do not publish a score.** Each case pins a named legal rule against a record shaped so the intuitive answer is the wrong one. That is what it is good for: catching the day an edit to a pack or a skill quietly stops enforcing a rule that used to hold.
 
-| Case | With | Baseline | Delta |
-|---|---|---|---|
-| `forms-are-out-of-scope` | 100% | 40% | +60 |
-| `filed-case-no-post-filing-cure` | 100% | 67% | +33 |
-| `not-filed-exhibit-is-a-gap` | 100% | 100% | 0 |
+It is not a quality benchmark and is no longer presented as one. Two reasons, both in [`evaluation/README.md`](evaluation/README.md). An ablation measures how far the skill moved the answer, not whether the answer is right, so a large delta on a rule we got wrong is a precise measurement of a mistake planted firmly. And the cases and the skills were written by the same hand from the same reading of the same authorities, so the suite tends to confirm its own premises and cannot detect that about itself. Publishing its output as evidence of quality would dress up a closed loop as an external check.
 
-The sharpest finding: on a filed petition the baseline recommended "a rewritten endeavor statement with actual specificity." Rewriting the endeavor after filing is a material change under *Matter of Izummi*, held against the petitioner's consistency. It is the intuitive move and it is the one that damages the case.
+The baseline arm is still run, as a triviality check rather than a scoreboard: a case the base model passes on its own is not testing the skill. Cases that show no delta are kept and left alone, and no fixture is tuned until it produces one.
 
-**We are reporting the zero.** The filing-status case was first written with exhibits labelled `NOT FILED` in the manifest, which gave the answer away. Rewritten so the status had to be inferred from a note in the package, the baseline passed again. A capable model handles this without the skill. The discipline is still encoded, because it holds when a package is larger and messier than a fixture, but it is not a differentiator on this evidence and is not claimed as one. Fixtures are not tuned until they produce a delta.
+**Removed `evaluation/benchmark.json` and `evaluation/benchmark.md`**, the v0.1 numbers from a superseded harness. They headlined a pass-rate delta as a quality result, which is the claim being withdrawn.
 
 **The runner distinguishes a judge failure from a substantive failure.** It originally scored "the judge could not run" as FAIL, which invented a regression that had not happened when the session hit a usage limit. Judge errors and unparseable verdicts are now reported as unjudged and excluded from the score. `tests/test_runner_logic.py` covers this and the rest of the grading logic offline, and runs in CI.
 

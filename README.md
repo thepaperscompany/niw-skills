@@ -177,6 +177,8 @@ The legal substance lives in [`knowledge/`](knowledge/) as plain Markdown, and e
 
 Each skill carries its own copy of the packs it needs, so a skill you upload to claude.ai works on its own. The copies are generated from `knowledge/`, and a check in our build fails if any of them drifts from the original.
 
+The regression tests in [`evaluation/`](evaluation/) pin specific legal rules against records where the intuitive answer is the wrong one. We run them to catch a rule quietly breaking, and we deliberately do not publish a score from them: an ablation measures how far a skill moved the answer rather than whether the answer is right, and the cases and the skills were written by the same hand, so the suite tends to confirm its own premises. [`evaluation/README.md`](evaluation/README.md) sets that out in full.
+
 ## What this is: and is not
 
 **This is:** a structured legal-analytical framework that helps you (or your attorney) understand how a USCIS adjudicator would currently view your case, where the gaps are, and what targeted preparation would change the verdict.
@@ -230,4 +232,4 @@ Apache 2.0 was chosen over MIT for three reasons specific to this project: (1) *
 
 ## Disclaimer
 
-See [DISCLAIMER.md](./DISCLAIMER.md). Short version: this is not legal advice and does not create an attorney–client relationship.
+See [DISCLAIMER.md](./DISCLAIMER.md). Short version: this is not legal advice and does not create an attorney-client relationship.

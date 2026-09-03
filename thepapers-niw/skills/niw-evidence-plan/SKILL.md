@@ -59,7 +59,11 @@ Say which gap each item closes, in the petitioner's terms.
 
 ### Step 5: write the manifest
 
-Write or update `niw-case/evidence/manifest.md`. Include every document the petitioner already has. Leave rows for items still to be gathered marked so they are visibly not yet in hand.
+Create or update the file `niw-case/evidence/manifest.md` using the Write tool. This is a file on disk, not a table in your reply. Every later skill reads this file and none of them can see your reply, so a manifest that exists only in the conversation leaves the case with no manifest at all.
+
+Write the file first, then confirm it is there, and only then describe it. Do not tell the petitioner it was saved unless you saved it.
+
+Include every document the petitioner already has. Leave rows for items still to be gathered marked so they are visibly not yet in hand.
 
 ```markdown
 | id | title | filing status | tier | locator |
@@ -82,8 +86,9 @@ Close with what to do first. Anything that must come from a former employer, an 
 
 1. **Never output a URL, a document identifier, an accession number or a publication date you cannot verify.** You have no search tool here. Name an authoritative source by its known name so the petitioner can find it themselves.
 2. **Never invent an exhibit id.** Ids you create must be recorded in the manifest.
-3. Do not pad. A long list of field-level material is longer without being stronger, and it buries the items that would change the assessment.
-4. No em-dashes. Short plain sentences. Explain a term of art on first use.
+3. **A file counts as written only if you wrote it.** `niw-case/evidence/manifest.md` is the contract with every later skill. Reproducing the table in your reply is not writing it. Reporting it as saved when it is not sends the petitioner into the next step believing they have something they do not.
+4. Do not pad. A long list of field-level material is longer without being stronger, and it buries the items that would change the assessment.
+5. No em-dashes. Short plain sentences. Explain a term of art on first use.
 
 ## Reference files
 
